@@ -24,7 +24,6 @@ const newAnimate = () => {
     duration: 500,
     iterations: Infinity,
   })
-  console.log(animateProps)
   const style = StyleSheet.create({
     item: Object.assign({}, animateProps)
   })

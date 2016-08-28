@@ -1,6 +1,7 @@
 
 const convertEffectInput = (effectInput) => {
   let keyframes = []
+  // FIXME: more beautify
   Object.keys(effectInput).map( props => {
     const values = effectInput[props]
     values.map( (value, index) => {
@@ -20,6 +21,7 @@ const bindTimings = (animates, timings) => {
   })
   return result
 }
+
 const convertIterationCount = (iteration) => {
   if(iteration === Infinity){
     return 'infinite'
@@ -27,15 +29,13 @@ const convertIterationCount = (iteration) => {
   return null
 }
 
-const convertOptions = ({direction, duration, iterations}) => {
-  // direction: 'alternate',
-  // duration: 500,
-  // iterations
+const convertOptions = ({direction, duration, delay, iterations}) => {
   return {
     animationDirection: direction,
     animationDuration: duration + 'ms',
+    animationDelay: delay + 'ms',
     animationIterationCount: convertIterationCount(iterations),
-    animationTimingFunction: "linear"
+    animationTimingFunction: "linear" // TODO: CSS default = ease
   }
 }
 
