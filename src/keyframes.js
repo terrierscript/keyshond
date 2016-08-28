@@ -33,6 +33,9 @@ const indexKeyframes = (values, index) => {
 }
 
 const convertKeyframes = (keyframes) => {
+  if(Array.isArray(keyframes)){
+    return keyframes
+  }
   const values = flattenValues(keyframes)
   const maxIndex = Math.max.apply(null, values.map( (v) => v.index))
   const frames = []
