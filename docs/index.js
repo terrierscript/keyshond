@@ -81,6 +81,7 @@ doAnimate("keyframes as multiple frame array", [{
   duration: 500,
   iterations: Infinity,
 })
+
 doAnimate("keyframes with offset", [{
   opacity: 1.2,
   transform: 'scale(1.2)',
@@ -102,11 +103,12 @@ doAnimate("keyframes with offset", [{
   iterations: Infinity,
 })
 
+// done
 doAnimate("Sample with offset", {
   opacity: [0.5, 1.2, 1],
   transform: ['scale(0.5)', 'scale(1.2)', 'scale(1)'],
 }, {
-  offset: [0.2, 0.5, 1], // offset object
+  offset: [0.1, 0.9, 1], // offset object
   direction: 'alternate',
   duration: 500,
   iterations: Infinity,
