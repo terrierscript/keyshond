@@ -49,7 +49,7 @@ const freestyleAnimate = (label, ...props) => {
   })
   console.log(animations)
   let STYL = Style.registerStyle( {
-    animation: animations
+    animation: animations.join('')
   })
   Style.inject()
 
