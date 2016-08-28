@@ -100,6 +100,17 @@ doAnimate("keyframes with offset", [{
   iterations: Infinity,
 })
 
+doAnimate("Sample with offset", {
+  opacity: [0.5, 1.2, 1],
+  transform: ['scale(0.5)', 'scale(1.2)', 'scale(1)'],
+}, {
+  offset: [0.2, 0.5, 1], // offset object
+  direction: 'alternate',
+  duration: 500,
+  iterations: Infinity,
+})
+
+
 doAnimate("Offset", [{
   background: 'red',
   transform: 'none',
@@ -123,3 +134,4 @@ doAnimate("Offset", [{
   duration: 4000,
   iterations: Infinity,
 })
+
