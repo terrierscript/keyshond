@@ -71,6 +71,7 @@ const convert = (keyframes, options) => {
   const props = Object.assign({}, {
     animationName
   }, animateOptions)
+  return props
 }
 
 module.exports = {

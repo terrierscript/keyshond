@@ -1,5 +1,6 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../src/index')
+const FreeStyle = require('free-style')
 
 // helpers
 const createElement = (label) => {
@@ -28,10 +29,24 @@ const aphroditeAnimate = (label, ...props) => {
   elem.className = css(style.item)
 }
 
+const freestyleAnimate = (label, ...props) => {
+  let Style = FreeStyle.create()
+  let animateProps = convert(...props)
+  let ANIMATION = Style.registerKeyframes(animateProps.animationName)
+  let STYL = Style.registerStyle(Object.assign(animateProps, {
+    animationName: ANIMATION
+  }))
+  Style.inject()
+
+  let elem = createElement(label)
+  elem.className = STYL
+}
+
 const doAnimate = (label, ...props) => {
   createElement(`====${label}=====`)
   elemAnimate("elem.animate=" + label, ...props)
   aphroditeAnimate("aphrodite=" + label, ...props)
+  freestyleAnimate("freestyle=" + label, ...props)
 }
 
 doAnimate("Sample 1", {
