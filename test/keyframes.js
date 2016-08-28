@@ -1,4 +1,4 @@
-const { convertKeyframes } = require('../src/keyframes')
+const { keyframeProperties } = require('../src/keyframeProperties')
 const assert = require('assert')
 
 describe('convertKeyframes', function () {
@@ -14,7 +14,7 @@ describe('convertKeyframes', function () {
       opacity: 1,
       transform: 'scale(1)'
     }]
-    assert.deepEqual(convertKeyframes(input), expect)
+    assert.deepEqual(keyframeProperties(input), expect)
   })
   // it('convert object with easing', () => {
   //   const input = {
@@ -22,7 +22,7 @@ describe('convertKeyframes', function () {
   //     transform: ['scale(0.5)', 'scale(1)'],
   //     easing: 'ease-in-out',
   //   }
-  //   console.log(convertKeyframes(input))
+  //   console.log(keyframeProperties(input))
   // })
   it('enable array', () => {
     const input = [{
@@ -32,6 +32,6 @@ describe('convertKeyframes', function () {
       opacity: 1,
       transform: 'scale(1)'
     }]
-    assert.deepEqual(convertKeyframes(input), input)
+    assert.deepEqual(keyframeProperties(input), input)
   })
 });

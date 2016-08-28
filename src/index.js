@@ -1,4 +1,4 @@
-const { convertKeyframes } = require('./keyframes')
+const { keyframeProperties  } = require('./keyframeProperties')
 
 const bindTimings = (animates, timings) => {
   let result = {}
@@ -39,7 +39,7 @@ const getEasing = (keyframes, options) => {
 const convert = (keyframes, options) => {
   const timings = [0, 100]
   const animationName = bindTimings(
-    convertKeyframes(keyframes),
+    keyframeProperties(keyframes),
     timings
   )
   const animateOptions = Object.assign({},
@@ -53,5 +53,4 @@ const convert = (keyframes, options) => {
 
 module.exports = {
   convert: convert,
-  convertKeyframes: convertKeyframes
 }

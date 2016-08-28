@@ -46,5 +46,5 @@ const convertKeyframes = (keyframes) => {
 }
 
 module.exports = {
-  convertKeyframes: convertKeyframes
+  keyframeProperties: convertKeyframes
 }
