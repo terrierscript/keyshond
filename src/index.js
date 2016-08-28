@@ -30,7 +30,7 @@ const shortHand = (item) => {
     item.animationDirection,
     item.animationFillMode,
     item.animationPlayState,
-  ]
+  ].join(',')
 }
 const convertOptions = ({direction, duration, delay, iterations, fillMode, playState}) => {
   return {
@@ -38,7 +38,7 @@ const convertOptions = ({direction, duration, delay, iterations, fillMode, playS
     animationDuration: num(duration),
     animationDelay: num(delay),
     animationIterationCount: num(iterations),
-    animationFillMode: fillMode
+    animationFillMode: fillMode,
     animationPlayState: playState
   }
 }
@@ -67,7 +67,8 @@ const convert = (keyframes, options) => {
     convertOptions(options),
     { animationTimingFunction: getEasing(keyframes, options) }
   )
-  return Object.assign({}, {
+
+  const props = Object.assign({}, {
     animationName
   }, animateOptions)
 }
