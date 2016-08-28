@@ -1,0 +1,27 @@
+{
+  "name": "kagiframe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "budo src/demo.js:demo.js --dirs docs",
+    "build": "browserify src/demo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": []
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "budo": "^9.0.0"
+  },
+  "dependencies": {
+    "aphrodite": "^0.5.0"
+  }
+}
