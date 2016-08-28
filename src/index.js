@@ -9,20 +9,24 @@ const bindTimings = (animates, timings) => {
   return result
 }
 
-const convertIterationCount = (iteration) => {
-  if(iteration === Infinity){
+const num = (num) => {
+  if(num === Infinity){
     return 'infinite'
+  }
+  if(!isNaN(num)){
+    return num + 'ms'
   }
   return null
 }
 
-const convertOptions = ({direction, duration, delay, iterations}) => {
+const convertOptions = ({direction, duration, delay, iterations, timingFunction}) => {
+  let _timingFunction = timingFunction ? timingFunction : "linear" // TODO: CSS default = ease
   return {
     animationDirection: direction,
-    animationDuration: duration + 'ms',
-    animationDelay: delay + 'ms',
-    animationIterationCount: convertIterationCount(iterations),
-    animationTimingFunction: "linear" // TODO: CSS default = ease
+    animationDuration: num(duration),
+    animationDelay: num(delay),
+    animationIterationCount: num(iterations),
+    animationTimingFunction: _timingFunction
   }
 }
 
