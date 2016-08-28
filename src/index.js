@@ -34,7 +34,13 @@ const getEasing = (keyframes, options) => {
     return keyframes.easing
   }
   // TODO: CSS default = ease. but Element.animate default is linear
-  return "linear"
+  if(Array.isArray(keyframes)){
+    let easings = keyframes.map( (k) => {
+      return k.easing || 'linear'
+    })
+    return easings.join(',')
+  }
+  return 'linear'
 }
 
 const convert = (keyframes, options) => {
