@@ -1,8 +1,8 @@
-const { convertKeyframes } = require('../src/index')
+const { convertKeyframes } = require('../src/keyframes')
 const assert = require('assert')
 
 describe('convertKeyframes', function () {
-  it('XXX convert object to array', () => {
+  it('convert object to array', () => {
     const input = {
       opacity: [0.5, 1],
       transform: ['scale(0.5)', 'scale(1)'],
