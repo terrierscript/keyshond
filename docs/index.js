@@ -1,4 +1,4 @@
-const { StyleSheet, css } = require('aphrodite')
+const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../src/index')
 
 // helpers
@@ -123,7 +123,7 @@ doAnimate("multiple offset no easing", [{
   iterations: Infinity,
 })
 
-doAnimate("multiple offset with easing (first)", [{
+doAnimate("(X)multiple offset with easing (first)", [{
   background: 'red',
   transform: 'none',
   easing: 'ease',
@@ -140,6 +140,7 @@ doAnimate("multiple offset with easing (first)", [{
   transform: 'translateX(100px)',
   easing: 'ease-out',
 }, {
+  offset: 1,
   background: 'blue',
   transform: 'none',
 
