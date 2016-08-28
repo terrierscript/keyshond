@@ -1,6 +1,6 @@
 'use strict'
 const { StyleSheet, css } = require('aphrodite')
-const kagiframe = require('./kagiframe')
+const kagiframe = require('../src/index')
 
 const createElement = () => {
   const dom = document.createElement('div')

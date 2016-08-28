@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "budo src/demo.js:demo.js --dirs docs",
+    "start": "budo docs/index.js:index.js --dirs docs",
     "build": "browserify src/demo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
