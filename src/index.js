@@ -20,12 +20,13 @@ const num = (num) => {
   return null
 }
 
-const convertOptions = ({direction, duration, delay, iterations}) => {
+const convertOptions = ({direction, duration, delay, iterations, fillMode}) => {
   return {
     animationDirection: direction,
     animationDuration: num(duration),
     animationDelay: num(delay),
     animationIterationCount: num(iterations),
+    animationFillMode: fillMode
   }
 }
 
