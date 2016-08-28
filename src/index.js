@@ -20,13 +20,26 @@ const num = (num) => {
   return null
 }
 
-const convertOptions = ({direction, duration, delay, iterations, fillMode}) => {
+const shortHand = (item) => {
+  return [
+    item.animationName,
+    item.animationDuration,
+    item.animationTimingFunction,
+    item.animationDelay,
+    item.animationIterationCount,
+    item.animationDirection,
+    item.animationFillMode,
+    item.animationPlayState,
+  ]
+}
+const convertOptions = ({direction, duration, delay, iterations, fillMode, playState}) => {
   return {
     animationDirection: direction,
     animationDuration: num(duration),
     animationDelay: num(delay),
     animationIterationCount: num(iterations),
     animationFillMode: fillMode
+    animationPlayState: playState
   }
 }
 
