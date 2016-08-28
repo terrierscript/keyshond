@@ -74,7 +74,10 @@ const convert = (keyframes, options) => {
   return props
 }
 const convertMultiple = (keyframes, options) => {
-  return [convert(keyframes, options)]
+  return [
+    convert(keyframes, options),
+    convert(keyframes, options)
+  ]
 }
 module.exports = {
   convert: convert,

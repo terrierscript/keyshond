@@ -29,10 +29,13 @@ const aphroditeAnimate = (label, ...props) => {
     return Object.assign({}, prev, a)
   }, {} )
   const style = StyleSheet.create(pr)
+
   const keys = Object.keys(pr).map( k => {
-    return style[k]
+    return css(style[k])
   })
-  elem.className = css(...keys)
+  const cls = keys.join(' ')
+
+  elem.className = cls
 }
 
 const freestyleAnimate = (label, ...props) => {
