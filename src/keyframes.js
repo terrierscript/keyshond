@@ -1,6 +1,6 @@
 
 const parseValues = (propertyName, keyframeValues) => {
-  if(!Array.isArray(keyframeValues)){
+  if(!Array.isArray(keyframeValues)){ // ignore like `easing`
     return null
   }
   return keyframeValues.map( (value, index) => ({
@@ -11,12 +11,16 @@ const parseValues = (propertyName, keyframeValues) => {
   }))
 }
 
+const flatten = (items) => {
+  return items.reduce( (prev, next) => [...prev, ...next], [])
+}
+
 const flattenValues = (keyframes) => {
   const propertyNames = Object.keys(keyframes)
   const values = propertyNames.map( (prop) => {
     return parseValues(prop, keyframes[prop])
   }).filter( item => (item !== null) )
-  return values.reduce( (prev, next) => [...prev, ...next], []) // flatten
+  return flatten(values)
 }
 
 const indexKeyframes = (values, index) => {
@@ -29,7 +33,6 @@ const indexKeyframes = (values, index) => {
 }
 
 const convertKeyframes = (keyframes) => {
-  // FIXME: more beautify
   const values = flattenValues(keyframes)
   const maxIndex = Math.max.apply(null, values.map( (v) => v.index))
   const frames = []
