@@ -19,15 +19,21 @@ const num = (num) => {
   return null
 }
 
-const convertOptions = ({direction, duration, delay, iterations, timingFunction}) => {
-  let _timingFunction = timingFunction ? timingFunction : "linear" // TODO: CSS default = ease
+const convertOptions = ({direction, duration, delay, iterations}) => {
   return {
     animationDirection: direction,
     animationDuration: num(duration),
     animationDelay: num(delay),
     animationIterationCount: num(iterations),
-    animationTimingFunction: _timingFunction
   }
+}
+
+const getEasing = (keyframes, options) => {
+  if(!Array.isArray(keyframes) && keyframes.easing){
+    return keyframes.easing
+  }
+  // TODO: CSS default = ease. but Element.animate default is linear
+  return "linear"
 }
 
 const convert = (keyframes, options) => {
@@ -36,7 +42,10 @@ const convert = (keyframes, options) => {
     convertKeyframes(keyframes),
     timings
   )
-  const animateOptions = convertOptions(options)
+  const animateOptions = Object.assign({},
+    convertOptions(options),
+    { animationTimingFunction: getEasing(keyframes, options) }
+  )
   return Object.assign({}, {
     animationName
   }, animateOptions)

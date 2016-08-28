@@ -15,7 +15,6 @@ const append = (dom) => {
 }
 
 const elemAnimate = (label, ...props) => {
-  console.log(props)
   let elem = createElement(label)
   elem.animate(...props);
 }
