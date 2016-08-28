@@ -73,7 +73,10 @@ const convert = (keyframes, options) => {
   }, animateOptions)
   return props
 }
-
+const convertMultiple = (keyframes, options) => {
+  return [convert(keyframes, options)]
+}
 module.exports = {
   convert: convert,
+  convertMultiple: convertMultiple
 }
