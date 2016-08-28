@@ -65,6 +65,40 @@ doAnimate("keyframes as array", [{
   duration: 500,
   iterations: Infinity,
 })
+doAnimate("keyframes as array", [{
+  opacity: 0.5,
+  transform: 'scale(0.5)',
+}, {
+  opacity: 0.7,
+  transform: 'scale(0.7)',
+}, {
+  opacity: 1,
+  transform: 'scale(1)',
+}], {
+  direction: 'alternate',
+  duration: 500,
+  iterations: Infinity,
+})
+doAnimate("keyframes with offset", [{
+  opacity: 1.2,
+  transform: 'scale(1.2)',
+}, {
+  opacity: 0.5,
+  transform: 'scale(0.5)',
+  offset: 0.3
+}, {
+  opacity: 0.7,
+  transform: 'scale(0.7)',
+  offset: 0.5,
+}, {
+  opacity: 1,
+  transform: 'scale(1)',
+  offset: 1,
+}], {
+  direction: 'alternate',
+  duration: 500,
+  iterations: Infinity,
+})
 
 doAnimate("Offset", [{
   background: 'red',
