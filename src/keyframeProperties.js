@@ -11,6 +11,25 @@ const parseValues = (propertyName, keyframeValues) => {
   }))
 }
 
+const convertEasing = (props) => {
+  let restProps = Object.assign({}, props)
+  const { easing } = restProps
+  delete restProps.easing
+  if(!easing){
+    return restProps
+  }
+  return Object.assign(restProps, {
+    animationTimingFunction: easing
+  })
+}
+
+// Filtering some properties
+const filterKeyframes = (keyframes) => {
+  return keyframes.map( (keyframe) => {
+    return convertEasing(keyframe)
+  })
+}
+
 const flatten = (items) => {
   return items.reduce( (prev, next) => [...prev, ...next], [])
 }
@@ -32,7 +51,8 @@ const indexKeyframes = (values, index) => {
   return keyframes
 }
 
-const convertKeyframes = (keyframes) => {
+// Convert keyframes array
+const processKeyframes = (keyframes) => {
   if(Array.isArray(keyframes)){
     return keyframes
   }
@@ -43,6 +63,11 @@ const convertKeyframes = (keyframes) => {
     frames[i] = indexKeyframes(values, i)
   }
   return frames
+}
+
+const convertKeyframes = (keyframes) => {
+  const processedKeyframes = processKeyframes(keyframes)
+  return filterKeyframes(processedKeyframes)
 }
 
 module.exports = {
