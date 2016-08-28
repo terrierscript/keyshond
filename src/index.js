@@ -1,4 +1,5 @@
 const { keyframeProperties  } = require('./keyframeProperties')
+const { keyframeTimings } = require('../src/timings')
 
 const bindTimings = (animates, timings) => {
   let result = {}
@@ -37,11 +38,10 @@ const getEasing = (keyframes, options) => {
 }
 
 const convert = (keyframes, options) => {
-  const timings = [0, 100]
-  const animationName = bindTimings(
-    keyframeProperties(keyframes),
-    timings
-  )
+  const kfProperties = keyframeProperties(keyframes)
+  const kfTimings = keyframeTimings(kfProperties, options)
+  const animationName = bindTimings(kfProperties, kfTimings)
+
   const animateOptions = Object.assign({},
     convertOptions(options),
     { animationTimingFunction: getEasing(keyframes, options) }

@@ -5,7 +5,7 @@ const { convert } = require('../src/index')
 const createElement = (label) => {
   const dom = document.createElement('div')
   dom.innerHTML = label
-  dom.style = 'width: 300px'
+  dom.style = 'width: 400px'
   append(dom)
   return dom
 }
@@ -64,7 +64,7 @@ doAnimate("keyframes as array", [{
   duration: 500,
   iterations: Infinity,
 })
-doAnimate("keyframes as array", [{
+doAnimate("keyframes as array (3 frames)", [{
   opacity: 0.5,
   transform: 'scale(0.5)',
 }, {
