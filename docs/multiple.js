@@ -1,5 +1,5 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
-const { convertMultiple } = require('../src/index')
+const { convertMultiple, shortHand } = require('../src/index')
 const FreeStyle = require('free-style')
 
 // helpers
@@ -40,11 +40,17 @@ const aphroditeAnimate = (label, ...props) => {
 
 const freestyleAnimate = (label, ...props) => {
   let Style = FreeStyle.create()
-  let animateProps = convertMultiple(...props)[0]
-  let ANIMATION = Style.registerKeyframes(animateProps.animationName)
-  let STYL = Style.registerStyle(Object.assign(animateProps, {
-    animationName: ANIMATION
-  }))
+  let animateProps = convertMultiple(...props)
+  let animations = animateProps.map( (props) => {
+    let keyframe = Style.registerKeyframes(props.animationName)
+    return shortHand(Object.assign(props , {
+      animationName: keyframe
+    }))
+  })
+  console.log(animations)
+  let STYL = Style.registerStyle( {
+    animation: animations
+  })
   Style.inject()
 
   let elem = createElement(label)

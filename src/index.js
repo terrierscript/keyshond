@@ -30,7 +30,7 @@ const shortHand = (item) => {
     item.animationDirection,
     item.animationFillMode,
     item.animationPlayState,
-  ].join(',')
+  ].filter(item => item).join(' ')
 }
 const convertOptions = ({direction, duration, delay, iterations, fillMode, playState}) => {
   return {
@@ -81,5 +81,6 @@ const convertMultiple = (keyframes, options) => {
 }
 module.exports = {
   convert: convert,
-  convertMultiple: convertMultiple
+  convertMultiple: convertMultiple,
+  shortHand: shortHand
 }
