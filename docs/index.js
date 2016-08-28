@@ -64,12 +64,15 @@ doAnimate("keyframes as array", [{
   duration: 500,
   iterations: Infinity,
 })
-doAnimate("keyframes as array (3 frames)", [{
+doAnimate("keyframes as multiple frame array", [{
   opacity: 0.5,
   transform: 'scale(0.5)',
 }, {
   opacity: 0.7,
   transform: 'scale(0.7)',
+}, {
+  opacity: 0.3,
+  transform: 'scale(0.3)',
 }, {
   opacity: 1,
   transform: 'scale(1)',
