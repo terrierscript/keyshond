@@ -1,4 +1,4 @@
-const keyframeProperties = require('../src/keyframeProperties')
+const keyframeProperties = require('../lib/keyframeProperties')
 const assert = require('assert')
 
 describe('convertKeyframes', function () {

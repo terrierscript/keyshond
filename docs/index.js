@@ -1,5 +1,5 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
-const { convert } = require('../src/index')
+const { convert } = require('../lib/index')
 const FreeStyle = require('free-style')
 
 // helpers
