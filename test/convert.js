@@ -16,7 +16,7 @@ describe('convert', function () {
       duration: 500,
       iterations: Infinity,
     })
-    const expect = { 
+    const expect = {
       animationName:
        { '0%': { opacity: 1.2, transform: 'scale(1.2)' },
          '30%': { opacity: 0.5, transform: 'scale(0.5)', offset: 0.3 },
