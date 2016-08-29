@@ -18,13 +18,13 @@ const doAnimate = (label, ...props) => {
     createElement("failed aphr" + label)
   }
   // aphroditeShrothandy("aphrodite(s)=" + label, ...props)
-  try{
-    freestyleAnimate("freestyle=" + label, ...props)
-  }catch(e){
-    console.warn(e)
-    console.trace(e)
-    createElement("failed fs" + label)
-  }
+  // try{
+  //   freestyleAnimate("freestyle=" + label, ...props)
+  // }catch(e){
+  //   console.warn(e)
+  //   console.trace(e)
+  //   createElement("failed fs" + label)
+  // }
 }
 
 module.exports = () => {
