@@ -148,6 +148,24 @@ doAnimate("keyframes with offset", [{
   iterations: Infinity,
 })
 
+doAnimate("keyframes with offset(partial)", [{
+  opacity: 1.2,
+  transform: 'scale(1.2)',
+  offset: 0.2
+}, {
+  opacity: 0.5,
+  transform: 'scale(0.5)',
+  offset: 0.3
+}, {
+  opacity: 1,
+  transform: 'scale(1)',
+  offset: 1,
+}], {
+  direction: 'alternate',
+  duration: 500,
+  iterations: Infinity,
+})
+
 doAnimate("keyframes with offset (partial)", [{
   opacity: 1.2,
   transform: 'scale(1.2)',
