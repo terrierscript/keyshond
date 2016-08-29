@@ -72,6 +72,4 @@ const convertKeyframes = (keyframes) => {
   return filterKeyframes(processedKeyframes)
 }
 
-module.exports = {
-  keyframeProperties: convertKeyframes
-}
+module.exports = convertKeyframes

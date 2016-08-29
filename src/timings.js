@@ -9,6 +9,4 @@ const timings = (keyframes, _options) => {
   })
 }
 
-module.exports = {
-  keyframeTimings: timings
-}
+module.exports = timings
