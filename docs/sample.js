@@ -47,6 +47,13 @@ module.exports = () => {
   }, {
     iterations: Infinity,
   })
+  doAnimate("Half iteration", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, {
+    duration: 500,
+    iterations: 0.5,
+  })
   doAnimate("Sample 1", {
     opacity: [0.5, 1],
     transform: ['scale(0.5)', 'scale(1)'],
