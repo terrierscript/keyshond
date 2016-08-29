@@ -6,7 +6,7 @@ describe('convertOptions', function () {
     let result = convertOptions({}, 2000)
     assert.deepEqual(result, {
       animationDuration: '2000ms',
-      animateTimingFunction: 'linear'
+      animationTimingFunction: 'linear'
     })
   })
 })
