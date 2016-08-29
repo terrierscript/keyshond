@@ -1,4 +1,14 @@
 const sample = require('./sample')
-// const failed = require('./failed')
+const failed = require('./failed')
 
-sample()
+const start = () => {
+  switch(location.search){
+    case '?failed':
+      failed()
+      return
+    default:
+      sample()
+  }
+}
+
+start()
