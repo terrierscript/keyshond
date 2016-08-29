@@ -1,3 +1,7 @@
+#
+> CSS in JS helper convert `Element.animate()` keyframe Object.
+
+# Usage
 
 # Reference
 - [AnimationEffectTimingProperties(MDN)](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingProperties)

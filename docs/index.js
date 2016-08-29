@@ -87,11 +87,11 @@ doAnimate("Easing with keyframes", {
   iterations: Infinity,
 })
 
-doAnimate("Object offset", {
+doAnimate("[Invalid] Object offset", {
   opacity: [0.5, 1],
   transform: ['scale(0.5)', 'scale(1)'],
-  easing: 'ease-in-out',
-  offset: [0.2, 1]
+  // easing: 'ease-in-out',
+  offset: 0.2
 }, {
   direction: 'alternate',
   duration: 500,

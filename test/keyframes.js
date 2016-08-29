@@ -1,8 +1,8 @@
 const keyframeProperties = require('../lib/keyframeProperties')
 const assert = require('assert')
 
-describe('convertKeyframes', function () {
-  it('convert object to array', () => {
+describe('keyframeProperties', function () {
+  it('Convert Object to array', () => {
     const input = {
       opacity: [0.5, 1],
       transform: ['scale(0.5)', 'scale(1)'],
