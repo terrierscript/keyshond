@@ -28,6 +28,25 @@ const doAnimate = (label, ...props) => {
 }
 
 module.exports = () => {
+  doAnimate("Default props", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, {
+    duration: 500,
+  })
+  doAnimate("Default props (non direction)", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, {
+    duration: 500,
+    iterations: Infinity,
+  })
+  doAnimate("Default props (non direction)", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, {
+    iterations: Infinity,
+  })
   doAnimate("Sample 1", {
     opacity: [0.5, 1],
     transform: ['scale(0.5)', 'scale(1)'],
@@ -50,6 +69,14 @@ module.exports = () => {
     direction: 'alternate',
     duration: 500,
     iterations: Infinity,
+  })
+  doAnimate("delay enddelay", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, {
+    // delay: 2500,
+    endDelay: 500,
+    duration: 1000
   })
 
   doAnimate("keyframes as array", [{
