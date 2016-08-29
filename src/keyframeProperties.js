@@ -11,22 +11,24 @@ const parseValues = (propertyName, keyframeValues) => {
   }))
 }
 
-const convertEasing = (props) => {
-  let restProps = Object.assign({}, props)
-  const { easing } = restProps
-  delete restProps.easing
-  if(!easing){
-    return restProps
+const replaceProperty = (props, targetProp, replaceProp) => {
+  if(!props[targetProp]){
+    return props
   }
+  const targetValue = props[targetProp]
+  let restProps = Object.assign({}, props) // copy
+  delete restProps[targetProp]
   return Object.assign(restProps, {
-    animationTimingFunction: easing
+    [replaceProp]: targetValue
   })
 }
 
 // Filtering some properties
 const filterKeyframes = (keyframes) => {
   return keyframes.map( (keyframe) => {
-    return convertEasing(keyframe)
+    // easing => animationTimingFunction
+    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+    return replaceProperty(keyframe, "easing", "animationTimingFunction")
   })
 }
 
