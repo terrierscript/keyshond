@@ -1,6 +1,3 @@
-const { StyleSheet, css } = require('aphrodite/no-important')
-const { convert } = require('../lib/index')
-const FreeStyle = require('free-style')
 
 const { append, elemAnimate, createElement, aphroditeAnimate, freestyleAnimate } = require('./helper')
 
@@ -50,17 +47,6 @@ module.exports = () => {
     iterations: Infinity,
   })
 
-  doAnimate("[Invalid] Object offset", {
-    opacity: [0.5, 1],
-    transform: ['scale(0.5)', 'scale(1)'],
-    // easing: 'ease-in-out',
-    offset: 0.2
-  }, {
-    direction: 'alternate',
-    duration: 500,
-    iterations: Infinity,
-  })
-
   doAnimate("keyframes as array", [{
     opacity: 0.5,
     transform: 'scale(0.5)',
@@ -101,24 +87,6 @@ module.exports = () => {
     opacity: 0.7,
     transform: 'scale(0.7)',
     offset: 0.5,
-  }, {
-    opacity: 1,
-    transform: 'scale(1)',
-    offset: 1,
-  }], {
-    direction: 'alternate',
-    duration: 500,
-    iterations: Infinity,
-  })
-
-  doAnimate("keyframes with offset(partial)", [{
-    opacity: 1.2,
-    transform: 'scale(1.2)',
-    offset: 0.2
-  }, {
-    opacity: 0.5,
-    transform: 'scale(0.5)',
-    offset: 0.3
   }, {
     opacity: 1,
     transform: 'scale(1)',
