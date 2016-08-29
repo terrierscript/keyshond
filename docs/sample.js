@@ -37,6 +37,11 @@ module.exports = () => {
     iterations: Infinity,
   })
 
+  doAnimate("numeric option", {
+    opacity: [0.5, 1],
+    transform: ['scale(0.5)', 'scale(1)'],
+  }, 2000)
+
   doAnimate("Easing with keyframes", {
     opacity: [0.5, 1],
     transform: ['scale(0.5)', 'scale(1)'],
