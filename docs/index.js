@@ -29,23 +29,6 @@ const aphroditeAnimate = (label, ...props) => {
   elem.className = css(style.item)
 }
 
-// const aphroditeShrothandy = (label, ...props) => {
-//   let elem = createElement(label)
-//   let animateProps = convert(...props)
-//   const emptyStyle = StyleSheet.create({
-//     emptyAnimate: {
-//       animationName: animateProps.animationName
-//     }
-//   })
-//   console.log(emptyStyle)
-//   const style = StyleSheet.create({
-//     item: {
-//       animation: `${css(emptyStyle.emptyAnimate)}`
-//     }
-//   })
-//   elem.className = css(style.item)
-// }
-
 const freestyleAnimate = (label, ...props) => {
   let Style = FreeStyle.create()
   let animateProps = convert(...props)
@@ -176,7 +159,6 @@ doAnimate("(X)multiple offset with easing (first)", [{
   offset: 1,
   background: 'blue',
   transform: 'none',
-
 }], {
   duration: 4000,
   iterations: Infinity,
