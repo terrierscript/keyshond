@@ -1,9 +1,9 @@
-const timings = require('../lib/timings')
+const calcTimings = require('../lib/timings')
 const assert = require('assert')
 
 describe('timings', function () {
   it('array keyframes to regular interval', () => {
-    const result = timings([
+    const result = calcTimings([
       {color: 'red'},
       {color: 'green'},
       {color: 'blue'},
@@ -11,7 +11,7 @@ describe('timings', function () {
     assert.deepEqual(result, [0, 50, 100])
   })
   it('use offset if array has property', () => {
-    const result = timings([
+    const result = calcTimings([
       {color: 'red'},
       {color: 'yellow', offset: 0.23},
       {color: 'green', offset: 0.9},
@@ -20,7 +20,7 @@ describe('timings', function () {
     assert.deepEqual(result, [0, 23, 90, 100])
   })
   it('ignore first keyframe offset', () => {
-    const result = timings([
+    const result = calcTimings([
       {color: 'red', offset: 0.2}, // ignore
       {color: 'yellow', offset: 0.23},
       {color: 'green', offset: 0.9},
