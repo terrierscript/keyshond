@@ -137,7 +137,7 @@ module.exports = () => {
     iterations: Infinity,
   })
 
-  doAnimate("(X)multiple offset with easing (first)", [{
+  doAnimate("multiple offset with easing (first)", [{
     background: 'red',
     transform: 'none',
     easing: 'ease',
