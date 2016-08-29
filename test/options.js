@@ -3,10 +3,9 @@ const assert = require('assert')
 
 describe('convertOptions', function () {
   it('only number', () => {
-    let result = convertOptions([], 2000)
-    console.log(result)
+    let result = convertOptions({}, 2000)
     assert.deepEqual(result, {
-      animationDelay: '2000ms',
+      animationDuration: '2000ms',
       animateTimingFunction: 'linear'
     })
   })
