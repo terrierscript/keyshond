@@ -44,10 +44,28 @@ const freestyleAnimate = (label, ...props) => {
 
 const doAnimate = (label, ...props) => {
   createElement(`====${label}=====`)
-  elemAnimate("elem.animate=" + label, ...props)
-  aphroditeAnimate("aphrodite=" + label, ...props)
+  try{
+    elemAnimate("elem.animate=" + label, ...props)
+  }catch(e){
+    console.warn(e)
+    console.trace(e)
+    createElement("failed elem" + label)
+  }
+  try{
+    aphroditeAnimate("aphrodite=" + label, ...props)
+  }catch(e){
+    console.warn(e)
+    console.trace(e)
+    createElement("failed aphr" + label)
+  }
   // aphroditeShrothandy("aphrodite(s)=" + label, ...props)
-  freestyleAnimate("freestyle=" + label, ...props)
+  try{
+    freestyleAnimate("freestyle=" + label, ...props)
+  }catch(e){
+    console.warn(e)
+    console.trace(e)
+    createElement("failed fs" + label)
+  }
 }
 
 doAnimate("Sample 1", {
@@ -63,6 +81,17 @@ doAnimate("Easing with keyframes", {
   opacity: [0.5, 1],
   transform: ['scale(0.5)', 'scale(1)'],
   easing: 'ease-in-out',
+}, {
+  direction: 'alternate',
+  duration: 500,
+  iterations: Infinity,
+})
+
+doAnimate("Object offset", {
+  opacity: [0.5, 1],
+  transform: ['scale(0.5)', 'scale(1)'],
+  easing: 'ease-in-out',
+  offset: [0.2, 1]
 }, {
   direction: 'alternate',
   duration: 500,
