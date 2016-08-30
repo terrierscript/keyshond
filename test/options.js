@@ -27,15 +27,46 @@ describe('convertOptions', function () {
       animationIterationCount: "infinite"
     })
   })
-  it('convert Number', () => {
-    let result = convertOptions({}, {
-      delay: 123,
-      duration: 456,
+  describe("Timing Number options", () => {
+    it('convert Number and suffix ms', () => {
+      let result = convertOptions({}, {
+        delay: 123,
+        duration: 456,
+      })
+      assert.deepEqual(result, {
+        animationDelay: "123ms",
+        animationDuration: "456ms",
+        animationTimingFunction: "linear"
+      })
     })
-    assert.deepEqual(result, {
-      animationDelay: "123ms",
-      animationDuration: "456ms",
-      animationTimingFunction: "linear"
+    it('accept with ms prefix', () => {
+      let result = convertOptions({}, {
+        delay: "123ms",
+      })
+      assert.deepEqual(result, {
+        animationDelay: "123ms",
+        animationTimingFunction: "linear"
+      })
+    })
+  })
+  describe("Count number options", () => {
+    it('convert Number to String', () => {
+      let result = convertOptions({}, {
+        iterations: 8,
+      })
+      assert.deepEqual(result, {
+        animationIterationCount: "8",
+        animationTimingFunction: "linear"
+      })
+    })
+    it('convert Infinty', () => {
+      let result = convertOptions({}, {
+        iterations: Infinity,
+      })
+      assert.deepEqual(result, {
+        animationIterationCount: "infinite",
+        animationTimingFunction: "linear"
+      })
     })
   })
 })
