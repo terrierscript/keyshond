@@ -10,9 +10,13 @@
     "start": "budo docs/index.js:index.js --dirs docs -H localhost",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir lib",
+    "prepublish": "npm run build",
     "preversion": "npm run build",
     "test": "mocha test/"
   },
+  "files": [
+    "lib"
+  ],
   "browserify": {
     "transform": [
       "babelify"
