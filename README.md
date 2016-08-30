@@ -1,6 +1,12 @@
 # keyshond
 > CSS in JS friendly animation helper for convert `Element.animate()` object
 
+# Install
+
+```
+$ npm install keyshond
+```
+
 # Usage
 
 ```js
