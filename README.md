@@ -107,14 +107,12 @@ Object
 Array
 
 ```js
-[ 
+[
   { // from
-    opacity: 0,
-    color: "#fff"
-  }, 
+    opacity: 0, color: "#fff"
+  },
   { // to
-    opacity: 1,
- ​   color: "#000"
+    opacity: 1, color: "#000"
   }
 ],
 ```
@@ -152,6 +150,9 @@ Support some options
   // animationIterationCount: 'infinite'
 }
 ```
+
+### Notices
+- Default easing is `linear`. This is compatible `Element.animate()`
 
 # Reference
 - [AnimationEffectTimingProperties(MDN)](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingProperties)
