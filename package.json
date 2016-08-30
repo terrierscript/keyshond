@@ -34,7 +34,11 @@
     "style",
     "inline-styless"
   ],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inuscript/keyshond.git"
+  },
+  "author": "inuscript",
   "license": "ISC",
   "devDependencies": {
     "aphrodite": "^0.5.0",
