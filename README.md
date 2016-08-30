@@ -1,6 +1,6 @@
 # keyshond
 
-> CSS in JS friendly animation helper for convert "Element.animate()" object
+CSS in JS friendly animation helper for convert [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate) object
 
 [![npm](https://img.shields.io/npm/v/keyshond.svg)](https://www.npmjs.com/package/keyshond)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
