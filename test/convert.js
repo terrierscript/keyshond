@@ -1,4 +1,4 @@
-const convert = require('../lib/convert')
+const convert = require('../lib/').animate
 const assert = require('assert')
 
 describe('convert', function () {
@@ -24,10 +24,7 @@ describe('convert', function () {
          '100%': { opacity: 1, transform: 'scale(1)', offset: 1 } },
       animationDirection: 'alternate',
       animationDuration: '500ms',
-      animationDelay: null,
       animationIterationCount: 'infinite',
-      animationFillMode: undefined,
-      animationPlayState: undefined,
       animationTimingFunction: 'linear,linear,linear,linear'
     }
     assert.deepEqual(result, expect)

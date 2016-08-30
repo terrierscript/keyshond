@@ -1,5 +1,5 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
-const { convert } = require('../lib/index')
+const { animate } = require('../lib/index')
 const FreeStyle = require('free-style')
 const { el, events, mount, className, attrs, text, children} = require('redom')
 
@@ -28,14 +28,14 @@ const native = (label, keyframeInput, keyframeOption) => {
 
 const aphrodite = (label, keyframeInput, keyframeOption) => {
   const style = StyleSheet.create({
-    item: convert(keyframeInput, keyframeOption)
+    item: animate(keyframeInput, keyframeOption)
   })
   return cl(label, css(style.item))
 }
 
 const freestyle = (label, keyframeInput, keyframeOption) => {
   const Style = FreeStyle.create()
-  const animationProps = convert(keyframeInput, keyframeOption)
+  const animationProps = animate(keyframeInput, keyframeOption)
   const ANIMATION = Style.registerKeyframes(animationProps.animationName)
   const props = Object.assign(animationProps, {
     animationName: ANIMATION,
