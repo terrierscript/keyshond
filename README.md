@@ -136,20 +136,20 @@ Support some options
   delay: 100,
   // animationDelay: '100ms',
 
-  direction: "alternate",
-  // animationDirection: "alternate",
+  direction: 'alternate',
+  // animationDirection: 'alternate',
 
-  duration: "300ms",
+  duration: '300ms',
   // animationDuration: '300ms',
 
-  easing: "cubic-bezier(0.42, 0, 0.58, 1)",
-  // animationTimingFunction: "cubic-bezier(0.42, 0, 0.58, 1)",
+  easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+  // animationTimingFunction: 'cubic-bezier(0.42, 0, 0.58, 1)',
 
-  fill: "backwards",
-  // animationFillMode: "backwards",
+  fill: 'backwards',
+  // animationFillMode: 'backwards',
 
   iterations: Infinity
-  // animationIterationCount: "infinite"
+  // animationIterationCount: 'infinite'
 }
 ```
 
@@ -161,4 +161,4 @@ Support some options
 
 # Naming
 
-keyframe + [keeshond](https://en.wikipedia.org/wiki/Keeshond)(very cute dog)
+`@keyframes` + [keeshond](https://en.wikipedia.org/wiki/Keeshond)
