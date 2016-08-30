@@ -27,20 +27,20 @@ const native = (label, keyframeInput, keyframeOption) => {
 }
 
 const aphrodite = (label, keyframeInput, keyframeOption) => {
-  let animateProps = convert(keyframeInput, keyframeOption)
   const style = StyleSheet.create({
-    item: Object.assign({}, animateProps)
+    item: convert(keyframeInput, keyframeOption)
   })
   return cl(label, css(style.item))
 }
 
 const freestyle = (label, keyframeInput, keyframeOption) => {
-  let Style = FreeStyle.create()
-  let animateProps = convert(keyframeInput, keyframeOption)
-  let ANIMATION = Style.registerKeyframes(animateProps.animationName)
-  let STYL = Style.registerStyle(Object.assign(animateProps, {
-    animationName: ANIMATION
-  }))
+  const Style = FreeStyle.create()
+  const animationProps = convert(keyframeInput, keyframeOption)
+  const ANIMATION = Style.registerKeyframes(animationProps.animationName)
+  const props = Object.assign(animationProps, {
+    animationName: ANIMATION,
+  })
+  const STYL = Style.registerStyle(props)
   Style.inject()
 
   return cl(label, STYL)
@@ -63,7 +63,7 @@ const sample = ({label, keyframeInput, keyframeOption}) => {
     native("elem.animate=" + label, keyframeInput, keyframeOption, playing),
     aphrodite("aphrodite=" + label, keyframeInput, keyframeOption, playing),
     freestyle("freestyle=" + label, keyframeInput, keyframeOption, playing),
-    constroller(playing),
+    // constroller(playing),
   ]))
   mount(document.body, samples)
 }
