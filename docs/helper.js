@@ -1,7 +1,7 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../lib/index')
 const FreeStyle = require('free-style')
-const { el, mount, className, attrs, text, children} = require('redom')
+const { el, events, mount, className, attrs, text, children} = require('redom')
 
 
 // helpers
@@ -46,13 +46,24 @@ const freestyle = (label, keyframeInput, keyframeOption) => {
   return cl(label, STYL)
 }
 
+const constroller = (playing, onToggle) => {
+  const button = el('button')
+  button(events({
+    onclick: () => {
+      onToggle(!playing)
+    }
+  }))
+}
+
 const sample = ({label, keyframeInput, keyframeOption}) => {
   const container = el('div')
+  const playing = false
   const samples = container(children([
     cl(`====${label}=====`),
-    native("elem.animate=" + label, keyframeInput, keyframeOption),
-    aphrodite("aphrodite=" + label, keyframeInput, keyframeOption),
-    freestyle("freestyle=" + label, keyframeInput, keyframeOption),
+    native("elem.animate=" + label, keyframeInput, keyframeOption, playing),
+    aphrodite("aphrodite=" + label, keyframeInput, keyframeOption, playing),
+    freestyle("freestyle=" + label, keyframeInput, keyframeOption, playing),
+    constroller(playing),
   ]))
   mount(document.body, samples)
 }
