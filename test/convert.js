@@ -11,8 +11,22 @@ describe('convert', function () {
       iterations: Infinity,
       direction: 'alternate',
     })
-    console.log(JSON.stringify(result, null, 2))
-    const expect = {}
+    const expect = {
+      "animationName": {
+        "0%": {
+          "opacity": 0.5,
+          "transform": "scale(0.5)"
+        },
+        "100%": {
+          "opacity": 1,
+          "transform": "scale(1)"
+        }
+      },
+      "animationTimingFunction": "linear",
+      "animationDirection": "alternate",
+      "animationDuration": "500ms",
+      "animationIterationCount": "infinite"
+    }
     assert.deepEqual(result, expect)
 
   })
