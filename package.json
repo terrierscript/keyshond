@@ -8,13 +8,22 @@
   },
   "scripts": {
     "start": "budo docs/index.js:index.js --dirs docs -H localhost",
-    "build": "browserify src/demo.js",
     "test": "mocha test/"
   },
   "browserify": {
     "transform": []
   },
-  "keywords": [],
+  "keywords": [
+    "css",
+    "CSS in JS",
+    "animation",
+    "animations",
+    "keyframe",
+    "keyframes",
+    "inline",
+    "style",
+    "inline-styless"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
