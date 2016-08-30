@@ -1,9 +1,23 @@
-const convert = require('../lib/').animate
+const animate = require('../lib/').animate
 const assert = require('assert')
 
 describe('convert', function () {
+  it('Readme example', () => {
+    const result = animate({
+      opacity: [0.5, 1],
+      transform: ['scale(0.5)', 'scale(1)'],
+    }, {
+      duration: 500,
+      iterations: Infinity,
+      direction: 'alternate',
+    })
+    console.log(JSON.stringify(result, null, 2))
+    const expect = {}
+    assert.deepEqual(result, expect)
+
+  })
   it('Complex example', () => {
-    const result = convert([{
+    const result = animate([{
       opacity: 1.2, transform: 'scale(1.2)',
     }, {
       opacity: 0.5, transform: 'scale(0.5)', offset: 0.3
