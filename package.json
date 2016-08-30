@@ -1,6 +1,6 @@
 {
   "name": "keyshond",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CSS in JS friendly animation helper for convert `Element.animate()` object",
   "main": "lib/index.js",
   "directories": {
