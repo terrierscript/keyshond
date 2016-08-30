@@ -4,7 +4,7 @@
 
 [![npm](https://img.shields.io/npm/v/keyshond.svg)](https://www.npmjs.com/package/keyshond)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-
+[![CircleCI](https://img.shields.io/circleci/project/inuscript/keyshond.svg)](https://circleci.com/gh/inuscript/keyshond)
 # Install
 
 ```
