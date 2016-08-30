@@ -1,5 +1,5 @@
 
-const { append, elemAnimate, createElement, aphroditeAnimate, freestyleAnimate } = require('./helper')
+const { elemAnimate, createElement, aphroditeAnimate, freestyleAnimate } = require('./helper')
 
 const doAnimate = (label, ...props) => {
   createElement(`====${label}=====`)

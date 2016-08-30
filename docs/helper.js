@@ -1,23 +1,23 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../lib/index')
 const FreeStyle = require('free-style')
-
+const { el, mount, attrs, text} = require('redom')
 // helpers
 const createElement = (label) => {
-  const dom = document.createElement('div')
-  dom.innerHTML = label
-  dom.style = 'width: 400px'
-  append(dom)
-  return dom
+  const div = el('div')
+  const item = div(text(label), attrs({style: 'width: 400px' }))
+  mount(document.body, item)
+  return item
 }
 
-const append = (dom) => {
-  document.body.appendChild(dom)
-}
+// const append = (dom) => {
+//   document.body.appendChild(dom)
+// }
 
 const elemAnimate = (label, ...props) => {
   let elem = createElement(label)
-  elem.animate(...props);
+  let anim = elem.animate(...props);
+  console.log(anim)
 }
 
 const aphroditeAnimate = (label, ...props) => {
@@ -43,5 +43,5 @@ const freestyleAnimate = (label, ...props) => {
 }
 
 module.exports = {
-  append, elemAnimate, createElement, aphroditeAnimate, freestyleAnimate
+  elemAnimate, createElement, aphroditeAnimate, freestyleAnimate
 }
