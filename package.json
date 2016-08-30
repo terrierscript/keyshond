@@ -13,7 +13,7 @@
     "prepublish": "npm run build",
     "preversion": "npm run build",
     "postversion": "git push --tag",
-    "lint": "eslint src/",
+    "lint": "eslint src/ test/",
     "test": "mocha test/"
   },
   "files": [
