@@ -26,6 +26,16 @@ describe('convertOptions', function () {
       animationFillMode: "backwards",
       animationIterationCount: "infinite"
     })
-
+  })
+  it('convert Number', () => {
+    let result = convertOptions({}, {
+      delay: 123,
+      duration: 456,
+    })
+    assert.deepEqual(result, {
+      animationDelay: "123ms",
+      animationDuration: "456ms",
+      animationTimingFunction: "linear"
+    })
   })
 })
