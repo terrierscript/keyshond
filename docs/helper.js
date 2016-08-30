@@ -1,32 +1,38 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../lib/index')
 const FreeStyle = require('free-style')
-const { el, mount, attrs, text} = require('redom')
+const { el, mount, className, attrs, text} = require('redom')
+
+
 // helpers
-const createElement = (label) => {
+const cl = (label, clsName) => {
   const div = el('div')
-  const item = div(text(label), attrs({style: 'width: 400px' }))
-  mount(document.body, item)
+  const item = div(
+    text(label),
+    className(clsName),
+    attrs({
+      style: 'width: 400px'
+    })
+  )
   return item
 }
-
-// const append = (dom) => {
-//   document.body.appendChild(dom)
-// }
+const createElement = (label) => {
+  mount(document.body, cl(label))
+}
 
 const elemAnimate = (label, ...props) => {
-  let elem = createElement(label)
+  let elem = cl(label)
   let anim = elem.animate(...props);
-  console.log(anim)
+  mount(document.body, elem)
 }
 
 const aphroditeAnimate = (label, ...props) => {
-  let elem = createElement(label)
   let animateProps = convert(...props)
   const style = StyleSheet.create({
     item: Object.assign({}, animateProps)
   })
-  elem.className = css(style.item)
+  let elem = cl(label, css(style.item))
+  mount(document.body, elem)
 }
 
 const freestyleAnimate = (label, ...props) => {
@@ -38,8 +44,8 @@ const freestyleAnimate = (label, ...props) => {
   }))
   Style.inject()
 
-  let elem = createElement(label)
-  elem.className = STYL
+  let elem = cl(label, STYL)
+  mount(document.body, elem)
 }
 
 module.exports = {
