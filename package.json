@@ -1,7 +1,7 @@
 {
-  "name": "kagiframe",
+  "name": "keyshond",
   "version": "1.0.0",
-  "description": "",
+  "description": "CSS in JS friendly animation helper for convert `Element.animate()` object",
   "main": "index.js",
   "directories": {
     "doc": "docs"

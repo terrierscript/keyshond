@@ -1,5 +1,5 @@
-#
-> CSS in JS helper convert `Element.animate()` keyframe Object.
+# keyshond
+> CSS in JS friendly animation helper for convert `Element.animate()` object
 
 # Usage
 
@@ -8,3 +8,7 @@
 - [W3C Draft)](http://w3c.github.io/web-animations/)
 - [CSS animation (W3C)](https://drafts.csswg.org/css-animations/)
 - [web-animations](https://github.com/web-animations/web-animations-js)
+
+# Naming
+
+keyframe + [keeshond](https://en.wikipedia.org/wiki/Keeshond)(very cute dog)

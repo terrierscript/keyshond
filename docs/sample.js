@@ -1,30 +1,8 @@
 
-const { elemAnimate, createElement, aphroditeAnimate, freestyleAnimate } = require('./helper')
+const { sample } = require('./helper')
 
-const doAnimate = (label, ...props) => {
-  createElement(`====${label}=====`)
-  try{
-    elemAnimate("elem.animate=" + label, ...props)
-  }catch(e){
-    console.warn(e)
-    console.trace(e)
-    createElement("failed elem" + label)
-  }
-  try{
-    aphroditeAnimate("aphrodite=" + label, ...props)
-  }catch(e){
-    console.warn(e)
-    console.trace(e)
-    createElement("failed aphr" + label)
-  }
-  // aphroditeShrothandy("aphrodite(s)=" + label, ...props)
-  // try{
-  //   freestyleAnimate("freestyle=" + label, ...props)
-  // }catch(e){
-  //   console.warn(e)
-  //   console.trace(e)
-  //   createElement("failed fs" + label)
-  // }
+const doAnimate = (label, keyframeInput, keyframeOption) => {
+  sample({label, keyframeInput, keyframeOption})
 }
 
 module.exports = () => {
@@ -41,7 +19,7 @@ module.exports = () => {
     duration: 500,
     iterations: Infinity,
   })
-  doAnimate("Default props (non direction)", {
+  doAnimate("Default props (non duration)", {
     opacity: [0.5, 1],
     transform: ['scale(0.5)', 'scale(1)'],
   }, {

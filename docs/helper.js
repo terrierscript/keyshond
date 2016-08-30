@@ -1,7 +1,7 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { convert } = require('../lib/index')
 const FreeStyle = require('free-style')
-const { el, mount, className, attrs, text} = require('redom')
+const { el, mount, className, attrs, text, children} = require('redom')
 
 
 // helpers
@@ -20,34 +20,42 @@ const createElement = (label) => {
   mount(document.body, cl(label))
 }
 
-const elemAnimate = (label, ...props) => {
+const native = (label, keyframeInput, keyframeOption) => {
   let elem = cl(label)
-  let anim = elem.animate(...props);
-  mount(document.body, elem)
+  let anim = elem.animate(keyframeInput, keyframeOption);
+  return elem
 }
 
-const aphroditeAnimate = (label, ...props) => {
-  let animateProps = convert(...props)
+const aphrodite = (label, keyframeInput, keyframeOption) => {
+  let animateProps = convert(keyframeInput, keyframeOption)
   const style = StyleSheet.create({
     item: Object.assign({}, animateProps)
   })
-  let elem = cl(label, css(style.item))
-  mount(document.body, elem)
+  return cl(label, css(style.item))
 }
 
-const freestyleAnimate = (label, ...props) => {
+const freestyle = (label, keyframeInput, keyframeOption) => {
   let Style = FreeStyle.create()
-  let animateProps = convert(...props)
+  let animateProps = convert(keyframeInput, keyframeOption)
   let ANIMATION = Style.registerKeyframes(animateProps.animationName)
   let STYL = Style.registerStyle(Object.assign(animateProps, {
     animationName: ANIMATION
   }))
   Style.inject()
 
-  let elem = cl(label, STYL)
-  mount(document.body, elem)
+  return cl(label, STYL)
 }
 
+const sample = ({label, keyframeInput, keyframeOption}) => {
+  const container = el('div')
+  const samples = container(children([
+    cl(`====${label}=====`),
+    native("elem.animate=" + label, keyframeInput, keyframeOption),
+    aphrodite("aphrodite=" + label, keyframeInput, keyframeOption),
+    freestyle("freestyle=" + label, keyframeInput, keyframeOption),
+  ]))
+  mount(document.body, samples)
+}
 module.exports = {
-  elemAnimate, createElement, aphroditeAnimate, freestyleAnimate
+  createElement, sample
 }
