@@ -3,7 +3,7 @@ const convertOptions = require('./options')
 const calcTimings = require('./timings')
 
 const zipObject = (keys, values) => {
-  return keys.reduce( (prev, key, index) => {
+  return keys.reduce((prev, key, index) => {
     return Object.assign({}, prev, {
       [key]: values[index]
     })
