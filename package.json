@@ -7,7 +7,6 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "budo docs/index.js:index.js --dirs docs -H localhost",
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
@@ -19,11 +18,6 @@
   "files": [
     "lib"
   ],
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "keywords": [
     "css",
     "CSS in JS",
@@ -42,22 +36,14 @@
   "author": "inuscript",
   "license": "ISC",
   "devDependencies": {
-    "aphrodite": "^0.5.0",
     "babel-cli": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.0",
-    "budo": "^9.0.0",
     "eslint": "^3.4.0",
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-standard": "^2.0.0",
-    "free-style": "^1.2.2",
     "mocha": "^3.0.2",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "redom": "0.0.5",
     "rimraf": "^2.5.4"
   }
 }
