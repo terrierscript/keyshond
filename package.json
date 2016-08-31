@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "budo docs/index.js:index.js --dirs docs -H localhost",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
     "preversion": "npm run build",
