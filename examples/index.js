@@ -1,5 +1,6 @@
 const sample = require('./sample')
 const failed = require('./failed')
+const radium = require('./radium')
 // const tiny = require('./tiny').default
 
 const start = () => {
@@ -9,6 +10,9 @@ const start = () => {
       return
     case '?tiny':
       tiny()
+      return
+    case '?radium':
+      radium()
       return
     default:
       sample()

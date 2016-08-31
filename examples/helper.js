@@ -1,6 +1,9 @@
 const { StyleSheet, css } = require('aphrodite/no-important')
 const { animate } = require('../lib/index')
 const FreeStyle = require('free-style')
+const jss = require('jss').default
+const jssCamelCase = require('jss-camel-case').default
+const radiumBind = require('./radium')
 const { el, events, mount, className, attrs, text, children} = require('redom')
 
 
@@ -46,6 +49,18 @@ const freestyle = (label, keyframeInput, keyframeOption) => {
   return cl(label, STYL)
 }
 
+// jss is not support keyframe?
+const jssSample = (label, keyframeInput, keyframeOption) => {
+  jss.use(jssCamelCase())
+
+  const animationProps = animate(keyframeInput, keyframeOption)
+  const {classes} = jss.createStyleSheet({
+    item: animationProps
+  }).attach()
+
+  return cl(label, classes.item)
+}
+
 const constroller = (playing, onToggle) => {
   const button = el('button')
   button(events({
@@ -63,6 +78,7 @@ const sample = ({label, keyframeInput, keyframeOption}) => {
     native("elem.animate=" + label, keyframeInput, keyframeOption, playing),
     aphrodite("aphrodite=" + label, keyframeInput, keyframeOption, playing),
     freestyle("freestyle=" + label, keyframeInput, keyframeOption, playing),
+    // jssSample("jss=" + label, keyframeInput, keyframeOption, playing),
     // constroller(playing),
   ]))
   mount(document.body, samples)
