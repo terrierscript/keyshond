@@ -24,10 +24,13 @@ export const freestyle = (keyframeInput, keyframeOption) => {
   return STYL
 }
 
+// hack
+let cnt = 0
+jss.setup(jssPreset())
+
 export const jssBind = (keyframeInput, keyframeOption) => {
-  jss.setup(jssPreset())
   const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
-  const ruleName = 'my-jss-animation'
+  const ruleName = `my-jss-animation-${cnt++}`
   const {classes} = jss.createStyleSheet({
     [`@keyframes ${ruleName}`] : animationName,
     item: {
