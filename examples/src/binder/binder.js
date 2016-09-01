@@ -14,7 +14,6 @@ export const aphrodite = (keyframeInput, keyframeOption) => {
 export const freestyle = (keyframeInput, keyframeOption) => {
   const Style = FreeStyle.create()
   const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
-  console.log(animationName)
   const ANIMATION = Style.registerKeyframes(animationName)
   const props = {
     ...animations,

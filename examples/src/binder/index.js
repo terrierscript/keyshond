@@ -1,13 +1,21 @@
 import React from 'react'
-import ReactDom from 'react'
+import ReactDom from 'react-dom'
 import * as binder from './binder'
 
 const Puppet = ({label, className}) => {
-  return <div className={className}>{label}</div>
+  return <div className={className} >{label}</div>
 }
 
-export const Native = ({label, keyframeInput, keyframeOption}) => {
-  return <Puppet label={label} />
+export class Native extends React.Component {
+  componentDidMount(){
+    const dom = ReactDom.findDOMNode(this)
+    const {keyframeInput, keyframeOption} = this.props
+    dom.animate(keyframeInput, keyframeOption)
+  }
+  render(){
+    const {label, keyframeInput, keyframeOption} = this.props
+    return <Puppet label={label} />
+  }
   // let elem = cl(label)
   // let anim = elem.animate(keyframeInput, keyframeOption);
   // return elem
