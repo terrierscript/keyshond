@@ -34,20 +34,20 @@ Output
 
 ```js
 {
-  "animationName": {
-    "0%": {
-      "opacity": 0.5,
-      "transform": "scale(0.5)"
+  'animationName': {
+    '0%': {
+      'opacity': 0.5,
+      'transform': 'scale(0.5)'
     },
-    "100%": {
-      "opacity": 1,
-      "transform": "scale(1)"
+    '100%': {
+      'opacity': 1,
+      'transform': 'scale(1)'
     }
   },
-  "animationTimingFunction": "linear",
-  "animationDirection": "alternate",
-  "animationDuration": "500ms",
-  "animationIterationCount": "infinite"
+  'animationTimingFunction': 'linear',
+  'animationDirection': 'alternate',
+  'animationDuration': '500ms',
+  'animationIterationCount': 'infinite'
 }
 ```
 
@@ -57,6 +57,7 @@ Output
 
 ```js
 import { StyleSheet, css } from 'aphrodite'
+
 const style = StyleSheet.create({
   item: animate(keyframeInput, keyframeOption)
 })
@@ -74,10 +75,19 @@ const Style = FreeStyle.create()
 const animationProps = animate(keyframeInput, keyframeOption)
 const ANIMATION = Style.registerKeyframes(animationProps.animationName)
 
-// Overwrite animationName
-const props = Object.assign(animationProps, {
-  animationName: ANIMATION,
+const style = StyleSheet.create({
+  item: Object.assign({}, animationProps, { animationName: ANIMATION })
 })
+
+// You can write this with Object rest spread transform
+// (need babel-transform-object-rest-spread or babel-preset-stage-2)
+//
+// const style = StyleSheet.create({
+//   item: {
+//     ...animationProps,
+//     animationName: ANIMATION,
+//   }
+// }
 
 const STYLE = Style.registerStyle(props)
 
@@ -88,71 +98,8 @@ const AnimateItem = () => {
 }
 ```
 
-# API
-
-## `animate(keyframes, options)`
-Same interface as [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
-
-### `keyframes` (Object or Array)
-See: [Keyframe Formats](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
-
-Object
-
-```js
-{
-  opacity: [ 0, 1 ],          // [ from, to ]
-  color:   [ "#fff", "#000" ] // [ from, to ]  
-}
-```
-Array
-
-```js
-[
-  { // from
-    opacity: 0, color: "#fff"
-  },
-  { // to
-    opacity: 1, color: "#000"
-  }
-],
-```
-
-with offset
-
-```js
-[ { opacity: 1 },
-  { opacity: 0.1, offset: 0.7 },
-  { opacity: 0 } ]
-```
-
-### `options`
-
-Support some options
-
-```js
-{
-  delay: 100,
-  // animationDelay: '100ms',
-
-  direction: 'alternate',
-  // animationDirection: 'alternate',
-
-  duration: '300ms',
-  // animationDuration: '300ms',
-
-  easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
-  // animationTimingFunction: 'cubic-bezier(0.42, 0, 0.58, 1)',
-
-  fill: 'backwards',
-  // animationFillMode: 'backwards',
-
-  iterations: Infinity
-  // animationIterationCount: 'infinite'
-}
-```
-
-### Notices
-- Default easing is `linear`. This is compatible `Element.animate()`
+# Documents
+- [API](https://github.com/inuscript/keyshond/blob/master/docs/API.md)
 
 # Reference
 - [AnimationEffectTimingProperties(MDN)](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingProperties)
