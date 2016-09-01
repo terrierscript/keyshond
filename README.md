@@ -34,7 +34,7 @@ Output
 
 ```js
 {
-  keyframes: {
+  'animationName': {
     '0%': {
       'opacity': 0.5,
       'transform': 'scale(0.5)'
@@ -44,12 +44,10 @@ Output
       'transform': 'scale(1)'
     }
   },
-  animations: {
-    'animationTimingFunction': 'linear',
-    'animationDirection': 'alternate',
-    'animationDuration': '500ms',
-    'animationIterationCount': 'infinite'
-  }
+  'animationTimingFunction': 'linear',
+  'animationDirection': 'alternate',
+  'animationDuration': '500ms',
+  'animationIterationCount': 'infinite'
 }
 ```
 
@@ -60,20 +58,9 @@ Output
 ```js
 import { StyleSheet, css } from 'aphrodite'
 
-const { keyframes , animations} = animate(keyframeInput, keyframeOption)
 const style = StyleSheet.create({
-  item: Object.assign({}, animations, { animationName: keyframes })
+  item: animate(keyframeInput, keyframeOption)
 })
-
-// You can write this with Object rest spread transform
-// (need babel-transform-object-rest-spread or babel-preset-stage-2)
-//
-// const style = StyleSheet.create({
-//   item: {
-//     ...animations,
-//     animationName: keyframes,
-//   }
-// }
 
 const AnimateItem = () => {
   return <div className={css(style.item)}>Hello</div>
@@ -85,13 +72,22 @@ const AnimateItem = () => {
 import FreeStyle from 'free-style'
 
 const Style = FreeStyle.create()
-const { keyframes , animations} = animate(keyframeInput, keyframeOption)
-
-const ANIMATION = Style.registerKeyframes(keyframes)
+const animationProps = animate(keyframeInput, keyframeOption)
+const ANIMATION = Style.registerKeyframes(animationProps.animationName)
 
 const style = StyleSheet.create({
-  item: Object.assign({}, animations, { animationName: ANIMATION })
+  item: Object.assign({}, animationProps, { animationName: ANIMATION })
 })
+
+// You can write this with Object rest spread transform
+// (need babel-transform-object-rest-spread or babel-preset-stage-2)
+//
+// const style = StyleSheet.create({
+//   item: {
+//     ...animationProps,
+//     animationName: ANIMATION,
+//   }
+// }
 
 const STYLE = Style.registerStyle(props)
 

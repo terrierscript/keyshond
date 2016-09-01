@@ -84,10 +84,5 @@ Example
 }
 ```
 
-#### `keyframes`
-- `@keyframs` converted Object
-
-#### `animations`
-- Rest animation properties
-- Notices
+- *Notices*
   - Default easing is `linear`. This is compatible `Element.animate()`
