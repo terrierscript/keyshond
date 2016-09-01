@@ -5,7 +5,7 @@ const jss = require('jss').default
 const jssCamelCase = require('jss-camel-case').default
 const radiumBind = require('./radium')
 const { el, events, mount, className, attrs, text, children} = require('redom')
-
+const singletonDom = require('singleton-dom')
 
 // helpers
 const cl = (label, clsName) => {
@@ -81,7 +81,7 @@ const sample = ({label, keyframeInput, keyframeOption}) => {
     // jssSample("jss=" + label, keyframeInput, keyframeOption, playing),
     // constroller(playing),
   ]))
-  mount(document.body, samples)
+  mount(singletonDom('sample'), samples)
 }
 module.exports = {
   createElement, sample

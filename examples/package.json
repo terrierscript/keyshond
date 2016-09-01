@@ -11,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "babel": {
-    "presets": ["react", "es2015"]
+    "presets": [
+      "react",
+      "es2015"
+    ]
   },
   "browserify": {
     "transform": [
@@ -29,6 +32,7 @@
     "radium": "^0.18.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "redom": "0.0.5"
+    "redom": "0.0.5",
+    "singleton-dom": "^1.0.0"
   }
 }
