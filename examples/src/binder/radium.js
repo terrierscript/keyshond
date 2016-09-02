@@ -1,14 +1,13 @@
 import Radium, { StyleRoot } from 'radium'
 import React from 'react'
 import ReactDom from 'react-dom'
-import { animateWithRegistration } from '../../../src/index'
+import { animate } from '../../../src/index'
 
 export default (keyframeInput, keyframeOption) => {
-  const animation = animateWithRegistration(keyframeInput, keyframeOption, (keyframes) => {
-    return Radium.keyframes(keyframes, "my-animation")
-  })
   const style = {
-    item: animation
+    item: animate(keyframeInput, keyframeOption, {
+      generateAnimationName: (keyframes) => Radium.keyframes(keyframes, "my-animation")
+    })
   }
 
   let Item = React.createClass({
