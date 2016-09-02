@@ -70,22 +70,15 @@ describe('keyframeProperties', function () {
   describe("css @keyframes", () => {
     it('Convert from and to ', () => {
       const input = {
-        from: {
-          opacity: 0.5,
-          transform: 'scale(0.5)'
-        },
-        to: {
-          opacity: 1,
-          transform: 'scale(1)'
-        }
+        from: { marginTop: "50px"},
+        to: { marginTop: "100px" }
       }
       const expect = [{
-        opacity: 0.5,
-        transform: 'scale(0.5)',
+        marginTop: '50px',
         offset: 0
       }, {
         opacity: 1,
-        transform: 'scale(1)',
+        marginTop: '100px',
         offset: 1
       }]
 
