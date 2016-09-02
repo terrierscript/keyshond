@@ -13,12 +13,10 @@ export const aphrodite = (keyframeInput, keyframeOption) => {
 
 export const freestyle = (keyframeInput, keyframeOption) => {
   const Style = FreeStyle.create()
-  const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
-  const ANIMATION = Style.registerKeyframes(animationName)
-  const props = {
-    ...animations,
-    animationName: ANIMATION,
-  }
+  const props = animate(keyframeInput, keyframeOption, {
+    generateAnimationName: (keyframes) => Style.registerKeyframes(keyframes)
+  })
+
   const STYL = Style.registerStyle(props)
   Style.inject()
   return STYL
@@ -29,16 +27,17 @@ let cnt = 0
 jss.setup(jssPreset())
 
 export const jssBind = (keyframeInput, keyframeOption) => {
-  const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
+  const { animationName, ...animationProps } = animate(keyframeInput, keyframeOption)
   const ruleName = `my-jss-animation-${cnt++}`
-  const {classes} = jss.createStyleSheet({
+
+  const style = {
     [`@keyframes ${ruleName}`] : animationName,
-    item: {
-      ...animations,
+    item: Object.assign({
+      ...animationProps,
       animationName: ruleName
-    }
-  }).attach()
+    })
+  }
+  const {classes} = jss.createStyleSheet(style).attach()
 
   return classes.item
 }
-

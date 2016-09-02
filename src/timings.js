@@ -1,3 +1,10 @@
+const zipObject = (keys, values) => {
+  return keys.reduce((prev, key, index) => {
+    return Object.assign({}, prev, {
+      [key]: values[index]
+    })
+  }, {})
+}
 
 const calcTiming = (keyframes) => {
   return keyframes.map((frame, index) => {
@@ -8,10 +15,17 @@ const calcTiming = (keyframes) => {
     return index / (keyframes.length - 1)
   })
 }
+
 const calcPrecentageTimings = (keyframes) => {
   return calcTiming(keyframes)
     .map(offset => offset * 100)
     .map(precentage => `${precentage}%`)
 }
 
-module.exports = calcPrecentageTimings
+const bindTiming = (keyframes) => {
+  const timings = calcPrecentageTimings(keyframes)
+  return zipObject(timings, keyframes)
+}
+
+module.exports.bindTiming = bindTiming
+module.exports.calcPrecentageTimings = calcPrecentageTimings
