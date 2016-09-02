@@ -86,4 +86,20 @@ describe('keyframeProperties', function () {
 
     assert.deepEqual(keyframeProperties(input), expect)
   })
+  it('Convert percentages', () => {
+    const input = {
+      "0% ": { top: 0, left: 0 },
+      " 30%": { top: "50px" },
+      "68%, 72%": { left: "50px" },
+      "100%": { top: "100px", left: "100%" }
+    }
+    const expect = [
+      { top: 0, left: 0, offset: 0 },
+      { top: '50px', offset: 0.3 },
+      { left: '50px', offset: 0.68 },
+      { left: '50px', offset: 0.72 },
+      { top: '100px', left: '100%', offset: 1 }
+    ]
+    assert.deepEqual(keyframeProperties(input), expect)
+  })
 })
