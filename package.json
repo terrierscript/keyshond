@@ -47,7 +47,5 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "object.entries": "^1.0.3",
-    "parse-css-dimension": "^1.1.0"
   }
 }
