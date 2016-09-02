@@ -62,6 +62,11 @@ const processObjectKeyframes = (keyframeObject) => {
   }
   return frames
 }
+const isPercentage = (str) => /[0-9]+%/.test(str)
+
+const isTimingKey = (keyName) => {
+  return (keyName === 'to' || keyName === 'from' || isPercentage(str))
+}
 
 // Convert keyframes array
 const processKeyframes = (keyframes) => {

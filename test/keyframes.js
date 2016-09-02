@@ -63,4 +63,25 @@ describe('keyframeProperties', function () {
 
     assert.deepEqual(keyframeProperties(input), expect)
   })
+  it('Convert from and to ', () => {
+    const input = {
+      from: {
+        opacity: 0.5,
+        transform: 'scale(0.5)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'scale(1)',
+      }
+    }
+    const expect = [{
+      opacity: 0.5,
+      transform: 'scale(0.5)',
+    }, {
+      opacity: 1,
+      transform: 'scale(1)',
+    }]
+
+    assert.deepEqual(keyframeProperties(input), expect)
+  })
 })
