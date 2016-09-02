@@ -77,7 +77,6 @@ describe('keyframeProperties', function () {
         marginTop: '50px',
         offset: 0
       }, {
-        opacity: 1,
         marginTop: '100px',
         offset: 1
       }]
