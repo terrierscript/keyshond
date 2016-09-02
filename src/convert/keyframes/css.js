@@ -34,13 +34,15 @@ const convertPercentages = (keyframes) => {
 }
 
 const isValidValue = (num) => {
-  return (!isNaN(num) && num >= 0 && num <= 100)
+  return (num !== null && num >= 0 && num <= 100)
 }
+
 const isValid = (arr) => {
   return arr.every( ({ percentage }) => {
     return isValidValue(percentage)
   })
 }
+
 const convertCssKeyframe = (keyframes) => {
   const arr = convertPercentages(keyframes)
   if (!isValid(arr)){
