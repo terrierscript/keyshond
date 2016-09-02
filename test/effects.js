@@ -1,4 +1,4 @@
-const convertEffect = require('../src/effects')
+const convertEffect = require('../src/convert/effects')
 const assert = require('assert')
 
 describe('convertEffect', function () {
