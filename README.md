@@ -1,6 +1,6 @@
 # keyshond
 
-CSS in JS friendly animation helper for convert [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate) object
+CSS in JS friendly animation helper support [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate) object and [CSS @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
 
 [![npm](https://img.shields.io/npm/v/keyshond.svg)](https://www.npmjs.com/package/keyshond)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
@@ -51,9 +51,12 @@ Output
 }
 ```
 
+# Documents
+- [API](https://github.com/inuscript/keyshond/blob/master/docs/API.md)
+
 # Example
 
-## with [aphrodite](https://github.com/Khan/aphrodite)
+## with [aphrodite](https://github.com/Khan/aphrodite) (most easily)
 
 ```js
 import { StyleSheet, css } from 'aphrodite'
@@ -138,9 +141,6 @@ const AnimateItem = () => {
   return <div className={STYLE}>Hello</div>
 }
 ```
-
-# Documents
-- [API](https://github.com/inuscript/keyshond/blob/master/docs/API.md)
 
 # Reference
 - [AnimationEffectTimingProperties(MDN)](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingProperties)

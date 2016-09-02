@@ -14,7 +14,7 @@ const doAnimate = (label, keyframeInput, keyframeOption) => {
   }
   return (
     <div key={label} style={{width: 400}} >
-      =========
+      ====={label}====
       <Native {...props} />
       <Aphrodite {...props} />
       <FreeStyle {...props} />
@@ -91,6 +91,20 @@ const doms = () => {
       opacity: 1,
       transform: 'scale(1)'
     }], {
+      direction: 'alternate',
+      duration: 500,
+      iterations: Infinity,
+    }),
+    doAnimate("from / to", {
+      from: {
+        opacity: 0.5,
+        transform: 'scale(0.5)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'scale(1)'
+      }
+    }, {
       direction: 'alternate',
       duration: 500,
       iterations: Infinity,

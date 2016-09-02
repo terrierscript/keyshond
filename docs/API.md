@@ -4,6 +4,7 @@
 Same interface as [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
 ### Inputs
 #### `keyframes` (Object or Array)
+
 This input support [Keyframe Formats](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
 
 Object
@@ -33,6 +34,24 @@ with offset
 [ { opacity: 1 },
   { opacity: 0.1, offset: 0.7 },
   { opacity: 0 } ]
+```
+
+and CSS `@keyframes` like object
+
+```js
+{
+  from: { marginTop: "50px"},
+  to: { marginTop: "100px" }
+}
+```
+
+```js
+{
+  "0%": { top: 0, left: 0 },
+  "30%": { top: "50px" },
+  "68%, 72%": { left: "50px" },
+  "100%": { top: "100px", left: "100%" }
+}
 ```
 
 #### `animateEffectOrDuration` (Object or Number)
