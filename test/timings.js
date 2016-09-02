@@ -1,4 +1,4 @@
-const calcTimings = require('../lib/timings')
+const calcTimings = require('../src/timings')
 const assert = require('assert')
 
 describe('timings', function () {

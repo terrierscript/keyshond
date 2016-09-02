@@ -1,5 +1,5 @@
 const convertKeyframes = require('./keyframes')
-const convertOptions = require('./options')
+const convertEffect = require('./effects')
 const calcTimings = require('./timings')
 
 const zipObject = (keys, values) => {
@@ -10,9 +10,9 @@ const zipObject = (keys, values) => {
   }, {})
 }
 
-const convert = (keyframeInput, options) => {
+const convert = (keyframeInput, animateEffect) => {
   const keyfreames = convertKeyframes(keyframeInput)
-  const animateOptions = convertOptions(keyframeInput, options)
+  const animateEffectResult = convertEffect(keyframeInput, animateEffect)
 
   const timings = calcTimings(keyfreames)
 
@@ -20,7 +20,7 @@ const convert = (keyframeInput, options) => {
     animationName: zipObject(timings, keyfreames)
   }
 
-  return Object.assign({}, keyframeProps, animateOptions)
+  return Object.assign({}, keyframeProps, animateEffectResult)
 }
 
 module.exports = convert

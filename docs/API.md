@@ -1,10 +1,10 @@
 # API
 
-## `animate(keyframes, options)`
+## `animate(keyframes, animateEffectOrDuration, [options])`
 Same interface as [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
 ### Inputs
 #### `keyframes` (Object or Array)
-See: [Keyframe Formats](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
+This input support [Keyframe Formats](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
 
 Object
 
@@ -35,9 +35,17 @@ with offset
   { opacity: 0 } ]
 ```
 
-#### `options`
+#### `animateEffectOrDuration` (Object or Number)
+You can pass number when only use duration
 
-Support some options
+```js
+animate([ { opacity: 1 },
+  { opacity: 0.1, offset: 0.7 },
+  { opacity: 0 } ]
+, 200) // 200ms animation.
+```
+
+Support  [AnimationEffectTimingProperties](https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingProperties) partially.
 
 ```js
 {
@@ -59,6 +67,27 @@ Support some options
   iterations: Infinity
   // animationIterationCount: 'infinite'
 }
+```
+
+### `options` (Object)
+
+```js
+{
+  generateAnimationName: [functtion]
+}
+```
+
+#### `generateAnimationName` (Function)
+
+Exmaple
+
+```js
+const animation = animatie(keyframeInput, keyframeOption, {
+  generateAnimationName: (keyframeObject) => {
+    // for Radium example.
+    return Radium.keyframes(keyframeObject, "my-animation")
+  }
+})
 ```
 
 ### Outputs
@@ -87,12 +116,4 @@ Example
 - *Notices*
   - Default easing is `linear`. This is compatible `Element.animate()`
 
-## `animateWithRegistration(keyframes, options, registerFunction)`
-You can `registerFunction(keyframeObject)`
 
-```js
-const animation = animateWithRegistration(keyframeInput, keyframeOption, (keyframeObject) => {
-  // for Radium example.
-  return Radium.keyframes(keyframeObject, "my-animation")
-})
-```
