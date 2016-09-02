@@ -1,10 +1,17 @@
 const convert = require('./convert')
 
-const animate = (keyframeInput, animateEffectOrDuration, options) => {
+const defaultOptions = {
+  generateAnimationName: (keyframes) => keyframes
+}
+
+const animate = (keyframeInput, animateEffectOrDuration, options = defaultOptions) => {
   const {keyframs, animateEffect} = convert(keyframeInput, animateEffectOrDuration)
-  return Object.assign({}, {
-    animationName: keyframs
-  }, animateEffect)
+  const animationName = options.generateAnimationName(keyframs)
+  const animationNameOption = animationName ? { animationName: animationName } : {}
+  return Object.assign({},
+    animationNameOption,
+    animateEffect
+  )
 }
 
 module.exports = animate
