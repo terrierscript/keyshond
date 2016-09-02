@@ -86,3 +86,13 @@ Example
 
 - *Notices*
   - Default easing is `linear`. This is compatible `Element.animate()`
+
+## `animateWithRegistration(keyframes, options, registerFunction)`
+You can `registerFunction(keyframeObject)`
+
+```js
+const animation = animateWithRegistration(keyframeInput, keyframeOption, (keyframeObject) => {
+  // for Radium example.
+  return Radium.keyframes(keyframeObject, "my-animation")
+})
+```

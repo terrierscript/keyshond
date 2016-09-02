@@ -1,17 +1,8 @@
-import { animate } from '../../../src/index'
+import { animate, animateWithRegistration } from '../../../src/index'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import FreeStyle from 'free-style'
 import jss from 'jss'
 import jssPreset from 'jss-preset-default'
-
-
-const withRegisterKeyframe = (keyframeInput, keyframeOption, animationNameFunction) => {
-  const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
-  const newAnimationName = animationNameFunction(animationName)
-  return Object.assign({}, animations, {
-    animationName: newAnimationName
-  })
-}
 
 export const aphrodite = (keyframeInput, keyframeOption) => {
   const style = StyleSheet.create({
@@ -22,7 +13,7 @@ export const aphrodite = (keyframeInput, keyframeOption) => {
 
 export const freestyle = (keyframeInput, keyframeOption) => {
   const Style = FreeStyle.create()
-  const props = withRegisterKeyframe(keyframeInput, keyframeOption, (keyframes) => {
+  const props = animateWithRegistration(keyframeInput, keyframeOption, (keyframes) => {
     return Style.registerKeyframes(keyframes)
   })
 
@@ -39,12 +30,9 @@ export const jssBind = (keyframeInput, keyframeOption) => {
   const { animationName, ...animations } = animate(keyframeInput, keyframeOption)
   const ruleName = `my-jss-animation-${cnt++}`
   let keyframeRules = {}
-  const animationProps = withRegisterKeyframe(keyframeInput, keyframeOption, (keyframe) => {
-    keyframeRules[`@keyframes ${ruleName}`] = keyframe
-    return ruleName
-  })
 
   const style = Object.assign({}, keyframeRules, {
+    [`@keyframes ${ruleName}`] : animationName
     item: animationProps
   })
 
