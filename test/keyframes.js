@@ -67,19 +67,21 @@ describe('keyframeProperties', function () {
     const input = {
       from: {
         opacity: 0.5,
-        transform: 'scale(0.5)',
+        transform: 'scale(0.5)'
       },
       to: {
         opacity: 1,
-        transform: 'scale(1)',
+        transform: 'scale(1)'
       }
     }
     const expect = [{
       opacity: 0.5,
       transform: 'scale(0.5)',
+      offset: 0
     }, {
       opacity: 1,
       transform: 'scale(1)',
+      offset: 1
     }]
 
     assert.deepEqual(keyframeProperties(input), expect)
