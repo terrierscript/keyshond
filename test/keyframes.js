@@ -63,43 +63,45 @@ describe('keyframeProperties', function () {
 
     assert.deepEqual(keyframeProperties(input), expect)
   })
-  it('Convert from and to ', () => {
-    const input = {
-      from: {
-        opacity: 0.5,
-        transform: 'scale(0.5)'
-      },
-      to: {
-        opacity: 1,
-        transform: 'scale(1)'
+  describe("css @keyframes", () => {
+    it('Convert from and to ', () => {
+      const input = {
+        from: {
+          opacity: 0.5,
+          transform: 'scale(0.5)'
+        },
+        to: {
+          opacity: 1,
+          transform: 'scale(1)'
+        }
       }
-    }
-    const expect = [{
-      opacity: 0.5,
-      transform: 'scale(0.5)',
-      offset: 0
-    }, {
-      opacity: 1,
-      transform: 'scale(1)',
-      offset: 1
-    }]
+      const expect = [{
+        opacity: 0.5,
+        transform: 'scale(0.5)',
+        offset: 0
+      }, {
+        opacity: 1,
+        transform: 'scale(1)',
+        offset: 1
+      }]
 
-    assert.deepEqual(keyframeProperties(input), expect)
-  })
-  it('Convert percentages', () => {
-    const input = {
-      "0% ": { top: 0, left: 0 },
-      " 30%": { top: "50px" },
-      "68%, 72%": { left: "50px" },
-      "100%": { top: "100px", left: "100%" }
-    }
-    const expect = [
-      { top: 0, left: 0, offset: 0 },
-      { top: '50px', offset: 0.3 },
-      { left: '50px', offset: 0.68 },
-      { left: '50px', offset: 0.72 },
-      { top: '100px', left: '100%', offset: 1 }
-    ]
-    assert.deepEqual(keyframeProperties(input), expect)
+      assert.deepEqual(keyframeProperties(input), expect)
+    })
+    it('Convert percentages', () => {
+      const input = {
+        "0% ": { top: 0, left: 0 },
+        " 30%": { top: "50px" },
+        "68%, 72%": { left: "50px" },
+        "100%": { top: "100px", left: "100%" }
+      }
+      const expect = [
+        { top: 0, left: 0, offset: 0 },
+        { top: '50px', offset: 0.3 },
+        { left: '50px', offset: 0.68 },
+        { left: '50px', offset: 0.72 },
+        { top: '100px', left: '100%', offset: 1 }
+      ]
+      assert.deepEqual(keyframeProperties(input), expect)
+    })
   })
 })
