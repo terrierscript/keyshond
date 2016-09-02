@@ -4,7 +4,8 @@ const defaultOptions = {
   generateAnimationName: (keyframes) => keyframes
 }
 
-const animate = (keyframeInput, animateEffectOrDuration, options = defaultOptions) => {
+const animate = (keyframeInput, animateEffectOrDuration, opt = {}) => {
+  const options = Object.assign({}, defaultOptions, opt)
   const {keyframs, animateEffect} = convert(keyframeInput, animateEffectOrDuration)
   const animationName = options.generateAnimationName(keyframs)
   const animationNameOption = animationName ? { animationName: animationName } : {}
@@ -14,4 +15,6 @@ const animate = (keyframeInput, animateEffectOrDuration, options = defaultOption
   )
 }
 
-module.exports = animate
+module.exports = {
+  animate: animate
+}
