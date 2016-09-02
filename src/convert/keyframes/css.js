@@ -6,7 +6,7 @@ const tryParsePercentage = (value) => {
     return null
   }
   const float = parseFloat(value)
-	return isNaN(float) ? null : float
+  return isNaN(float) ? null : float
 }
 
 const toPercentage = (value) => {
@@ -21,16 +21,16 @@ const flatten = (items) => items.reduce((prev, next) => [...prev, ...next], [])
 
 const convert = (props, value) => {
   const percentages = props.split(',').map(v => v.trim())
-  return percentages.map( p => {
-    return { percentage: toPercentage(p), value: value}
+  return percentages.map(p => {
+    return { percentage: toPercentage(p), value: value }
   })
 }
 
 const convertPercentages = (keyframes) => {
-  const parse = Object.keys(keyframes).map( (k) => {
+  const parse = Object.keys(keyframes).map((k) => {
     return convert(k, keyframes[k])
   })
-  return flatten(parse).sort( (a, b) => a.percentage - b.percentage)
+  return flatten(parse).sort((a, b) => a.percentage - b.percentage)
 }
 
 const isValidValue = (num) => {
@@ -38,17 +38,17 @@ const isValidValue = (num) => {
 }
 
 const isValid = (arr) => {
-  return arr.every( ({ percentage }) => {
+  return arr.every(({ percentage }) => {
     return isValidValue(percentage)
   })
 }
 
 const convertCssKeyframe = (keyframes) => {
   const arr = convertPercentages(keyframes)
-  if (!isValid(arr)){
+  if (!isValid(arr)) {
     return null
   }
-  const r = arr.map( ({ percentage, value}) => {
+  const r = arr.map(({ percentage, value }) => {
     return Object.assign({}, value, {
       offset: percentage / 100
     })

@@ -67,11 +67,11 @@ describe('keyframeProperties', function () {
       assert.deepEqual(keyframeProperties(input), expect)
     })
   })
-  describe("css @keyframes", () => {
+  describe('css @keyframes', () => {
     it('Convert from and to ', () => {
       const input = {
-        from: { marginTop: "50px"},
-        to: { marginTop: "100px" }
+        from: { marginTop: '50px' },
+        to: { marginTop: '100px' }
       }
       const expect = [{
         marginTop: '50px',
@@ -86,10 +86,10 @@ describe('keyframeProperties', function () {
     })
     it('Convert percentages', () => {
       const input = {
-        "0% ": { top: 0, left: 0 },
-        " 30%": { top: "50px" },
-        "68%, 72%": { left: "50px" },
-        "100%": { top: "100px", left: "100%" }
+        '0% ': { top: 0, left: 0 },
+        ' 30%': { top: '50px' },
+        '68%, 72%': { left: '50px' },
+        '100%': { top: '100px', left: '100%' }
       }
       const expect = [
         { top: 0, left: 0, offset: 0 },

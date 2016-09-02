@@ -5,9 +5,9 @@ const filter = require('./filter')
 
 const convertKeyframes = (keyframes) => {
   const processedKeyframes = (
-    arrayKeyframe(keyframes)
-    || cssKeyframe(keyframes)
-    || objectKeyframe(keyframes)
+    arrayKeyframe(keyframes) ||
+    cssKeyframe(keyframes) ||
+    objectKeyframe(keyframes)
   )
   return filter(processedKeyframes)
 }
