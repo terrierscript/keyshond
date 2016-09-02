@@ -14,7 +14,7 @@ describe('convert', function () {
     const expect = {
       'animationName': 'my-registration-name',
       'animationTimingFunction': 'linear',
-      'animationDuration': '200ms',
+      'animationDuration': '200ms'
     }
     assert.deepEqual(result, expect)
   })
