@@ -1,4 +1,4 @@
-const animate = require('../src/').animate
+const animate = require('../src/')
 const assert = require('assert')
 
 describe('convert', function () {
