@@ -57,6 +57,7 @@ Output
 
 ```js
 import { StyleSheet, css } from 'aphrodite'
+import { animate } from 'keyshond'
 
 const style = StyleSheet.create({
   item: animate(keyframeInput, keyframeOption)
@@ -70,28 +71,68 @@ const AnimateItem = () => {
 ## with [free-style](https://github.com/Khan/free-style)
 ```js
 import FreeStyle from 'free-style'
+import { animate } from 'keyshond'
 
 const Style = FreeStyle.create()
-const animationProps = animate(keyframeInput, keyframeOption)
-const ANIMATION = Style.registerKeyframes(animationProps.animationName)
-
-const style = StyleSheet.create({
-  item: Object.assign({}, animationProps, { animationName: ANIMATION })
+const props = animate(keyframeInput, keyframeOption, {
+  generateAnimationName: (keyframes) => Style.registerKeyframes(keyframes)
 })
-
-// You can write this with Object rest spread transform
-// (need babel-transform-object-rest-spread or babel-preset-stage-2)
-//
-// const style = StyleSheet.create({
-//   item: {
-//     ...animationProps,
-//     animationName: ANIMATION,
-//   }
-// }
 
 const STYLE = Style.registerStyle(props)
 
 Style.inject()
+
+const AnimateItem = () => {
+  return <div className={STYLE}>Hello</div>
+}
+```
+
+## with [Radium](https://github.com/formidablelabs/radium)
+
+```js
+import { animate } from 'keyshond'
+import Radium, { StyleRoot } from 'radium'
+
+const style = {
+  item: animate(keyframeInput, keyframeOption, {
+    generateAnimationName: (keyframes) => Radium.keyframes(keyframes, "my-animation")
+  })
+}
+
+let Item = React.createClass({
+  render(){
+    return <div style={[style.item]}>Radium Example</div>
+  }
+})
+Item = Radium(Item)
+
+const AnimateItem = () => {
+  return <StyleRoot><Item/></StyleRoot>
+}
+
+```
+
+## with [jss](https://github.com/cssinjs/jss)
+
+```js
+import { animate } from 'keyshond'
+
+import jss from 'jss'
+import jssPreset from 'jss-preset-default'
+
+jss.setup(jssPreset())
+
+const { animationName, ...animationEffects } = animate(keyframeInput, keyframeOption)
+const ruleName = `my-jss-animation`
+// If you register multiple animation, you need change ruleName like `my-jss-animation-{$unique}`
+
+const style = {
+  [`@keyframes ${ruleName}`] : animationName,
+  item: Object.assign({}, animationEffects, {
+    animationName: ruleName
+  })
+}
+const {classes} = jss.createStyleSheet(style).attach()
 
 const AnimateItem = () => {
   return <div className={STYLE}>Hello</div>
