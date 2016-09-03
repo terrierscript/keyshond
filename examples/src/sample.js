@@ -95,20 +95,20 @@ const doms = () => {
       duration: 500,
       iterations: Infinity,
     }),
-    doAnimate("from / to", {
-      from: {
-        opacity: 0.5,
-        transform: 'scale(0.5)',
-      },
-      to: {
-        opacity: 1,
-        transform: 'scale(1)'
-      }
-    }, {
-      direction: 'alternate',
-      duration: 500,
-      iterations: Infinity,
-    }),
+    // doAnimate("from / to", {
+    //   from: {
+    //     opacity: 0.5,
+    //     transform: 'scale(0.5)',
+    //   },
+    //   to: {
+    //     opacity: 1,
+    //     transform: 'scale(1)'
+    //   }
+    // }, {
+    //   direction: 'alternate',
+    //   duration: 500,
+    //   iterations: Infinity,
+    // }),
     doAnimate("keyframes as multiple frame array", [{
       opacity: 0.5,
       transform: 'scale(0.5)',
@@ -185,6 +185,21 @@ const doms = () => {
     }], {
       duration: 4000,
       iterations: Infinity,
+    }),
+    doAnimate("global and property easing", [{
+      background: 'red',
+      transform: 'none',
+      easing: 'linear',
+    }, {
+      transform: 'translateY(100px)',
+      easing: 'ease-out',
+    }, {
+      background: 'blue',
+      transform: 'none',
+    }], {
+      duration: 4000,
+      iterations: Infinity,
+      easing: 'ease-in-out',
     }),
     doAnimate("multiple offset with easing (first)", [{
       background: 'red',

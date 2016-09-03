@@ -1,12 +1,15 @@
 
-const flatten = (items) => {
-  return items.reduce((prev, next) => [...prev, ...next], [])
+
+// Convert object.entries and sanitize non keyframe value
+const format = (keyframes) => {
+  return Object.keys(keyframes)
+    .map( (key) => [key, keyframes[key]]) // Object.entries
+    .filter( ([k, v]) => Array.isArray(v)) // filter like easing: property
 }
 
+// { opacity: [0.5, 1] } 
+// => [ {index: 0, keyframes: {opacity: 0.5} , {index: 1, keyframes: {opacity: 1} ]
 const parseValues = (propertyName, keyframeValues) => {
-  if (!Array.isArray(keyframeValues)) { // ignore like `easing`
-    return null
-  }
   return keyframeValues.map((value, index) => ({
     index: index,
     keyframe: {
@@ -15,12 +18,10 @@ const parseValues = (propertyName, keyframeValues) => {
   }))
 }
 
-const sanitizeValues = (keyframes) => {
-  const propertyNames = Object.keys(keyframes)
-  const values = propertyNames.map((prop) => {
-    return parseValues(prop, keyframes[prop])
-  }).filter(item => (item !== null))
-  return flatten(values)
+const parseObject = (keyframeEntries) => {
+  return format(keyframeEntries)
+    .map( ([key, value]) => parseValues(key, value) )
+    .reduce((prev, next) => [...prev, ...next], []) // flatten
 }
 
 const indexKeyframes = (values, index) => {
@@ -33,7 +34,7 @@ const indexKeyframes = (values, index) => {
 }
 
 module.exports = (keyframes) => {
-  const values = sanitizeValues(keyframes)
+  const values = parseObject(keyframes)
   const maxIndex = Math.max.apply(null, values.map((v) => v.index))
   const frames = []
   for (let i = 0; i < maxIndex + 1; i++) {
