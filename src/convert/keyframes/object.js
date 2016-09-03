@@ -4,9 +4,6 @@ const flatten = (items) => {
 }
 
 const parseValues = (propertyName, keyframeValues) => {
-  if (!Array.isArray(keyframeValues)) { // ignore like `easing`
-    return null
-  }
   return keyframeValues.map((value, index) => ({
     index: index,
     keyframe: {
@@ -15,10 +12,16 @@ const parseValues = (propertyName, keyframeValues) => {
   }))
 }
 
-const sanitizeValues = (keyframes) => {
-  const propertyNames = Object.keys(keyframes)
-  const values = propertyNames.map((prop) => {
-    return parseValues(prop, keyframes[prop])
+
+const format = (keyframes) => {
+  return Object.keys(keyframes)
+    .map( (key) => [key, keyframes[key]]) // Object.entries
+    .filter( ([k, v]) => Array.isArray(v)) // filter like easing: property
+}
+
+const sanitizeValues = (keyframeEntries) => {
+  const values = keyframeEntries.map( ([key, value]) => {
+    return parseValues(key, value)
   }).filter(item => (item !== null))
   return flatten(values)
 }
@@ -33,7 +36,8 @@ const indexKeyframes = (values, index) => {
 }
 
 module.exports = (keyframes) => {
-  const values = sanitizeValues(keyframes)
+  const entries = format(keyframes)
+  const values = sanitizeValues(entries)
   const maxIndex = Math.max.apply(null, values.map((v) => v.index))
   const frames = []
   for (let i = 0; i < maxIndex + 1; i++) {
