@@ -1,7 +1,7 @@
 {
   "name": "keyshond",
   "version": "0.0.5",
-  "description": "CSS in JS friendly animation helper for convert `Element.animate()` object",
+  "description": "CSS in JS friendly animation helper support Element.animate() object and CSS @keyframes",
   "main": "lib/index.js",
   "directories": {
     "doc": "docs"
@@ -9,7 +9,6 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
-    "prepublish": "npm run build",
     "preversion": "npm run build",
     "postversion": "git push --tag",
     "lint": "eslint src/ test/",
@@ -36,11 +35,11 @@
     "url": "git+https://github.com/inuscript/keyshond.git"
   },
   "author": "inuscript",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.14.0",
     "eslint": "^3.4.0",
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^2.0.1",
@@ -49,5 +48,8 @@
     "nyc": "^8.1.0",
     "rimraf": "^2.5.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-runtime": "^6.11.6",
+    "hyphenate-style-name": "^1.0.1"
+  }
 }
