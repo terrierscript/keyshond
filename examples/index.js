@@ -1,14 +1,14 @@
 import sample from './src/sample'
+import sandbox from './src/sandbox'
 // import failed from './src/failed'
-// const tiny = require('./tiny').default
 
 const start = () => {
   switch(location.search){
     case '?failed':
-      // failed()
+      failed()
       return
-    case '?tiny':
-      tiny()
+    case '?sandbox':
+      sandbox()
       return
     default:
       sample()

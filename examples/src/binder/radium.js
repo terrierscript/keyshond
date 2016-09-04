@@ -1,7 +1,8 @@
+import { animate } from '../../../src/index'
+
 import Radium, { StyleRoot } from 'radium'
 import React from 'react'
 import ReactDom from 'react-dom'
-import { animate } from '../../../src/index'
 
 export default (keyframeInput, keyframeOption) => {
   const style = {
