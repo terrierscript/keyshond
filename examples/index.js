@@ -1,5 +1,5 @@
 import sample from './src/sample'
-import sandbox from './src/sandbox'
+import easing from './src/easing'
 // import failed from './src/failed'
 
 const start = () => {
@@ -7,8 +7,8 @@ const start = () => {
     case '?failed':
       failed()
       return
-    case '?sandbox':
-      sandbox()
+    case '?easing':
+      easing()
       return
     default:
       sample()
