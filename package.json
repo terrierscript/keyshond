@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "CSS in JS friendly animation helper support Element.animate() object and CSS @keyframes",
   "main": "lib/index.js",
+  "modules": "src/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -17,7 +18,7 @@
     "report-coverage": "nyc --reporter=lcov report > coverage.lcov"
   },
   "files": [
-    "lib"
+    "lib", "src"
   ],
   "keywords": [
     "css",
