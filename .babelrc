@@ -1,6 +1,6 @@
 {
   "plugins": ["transform-runtime"],
   "presets": [
-    ["latest", { "loose": true, "modules": "commonjs"}],
+    ["latest", { "loose": true}],
   ]
 }
