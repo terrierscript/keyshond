@@ -2,7 +2,7 @@
 
 // see: https://github.com/jedmao/parse-css-dimension/blob/master/index.js#L25-L30
 const tryParsePercentage = (value) => {
-  if(typeof value === "number"){
+  if (typeof value === 'number') {
     return value
   }
   if (!/%$/.test(value)) {
