@@ -35,14 +35,15 @@ const doms = () => {
     }),
     doAnimate("Emulate", {
       ...input,
-    }, {
-      ...optionBase,
       easing: `cubic-bezier(
         ${ease[0] * ease[0]} ,
         ${ease[1] * ease[1]} ,
         ${ease[2] * ease[2]} ,
         ${ease[3] * ease[3]}
       )`
+
+    }, {
+      ...optionBase,
       // easing: `cubic-bezier(${0.25*0.25}, ${0.1*0.1}, ${0.25*0.25}, 1.0)`,
 
     }),

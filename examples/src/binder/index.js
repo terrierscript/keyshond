@@ -15,7 +15,7 @@ export class Native extends React.Component {
   }
   render(){
     const {label, keyframeInput, keyframeOption} = this.props
-    return <Puppet label={label} />
+    return <Puppet label={"native"} />
   }
   // let elem = cl(label)
   // let anim = elem.animate(keyframeInput, keyframeOption);

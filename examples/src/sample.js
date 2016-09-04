@@ -47,6 +47,13 @@ const doms = () => {
     }, {
       duration: 500,
     }),
+    doAnimate("Default props 3param", {
+      opacity: [0.5, 0, 1, 0, 1],
+      transform: ['scale(0.5)', 'scale(1)'],
+    }, {
+      duration: 5000,
+      iterations: Infinity,
+    }),
     doAnimate("Default props (non direction)", {
       opacity: [0.5, 1],
       transform: ['scale(0.5)', 'scale(1)'],
