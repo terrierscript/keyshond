@@ -18,7 +18,8 @@
     "report-coverage": "nyc --reporter=lcov report > coverage.lcov"
   },
   "files": [
-    "lib", "src"
+    "lib",
+    "src"
   ],
   "keywords": [
     "css",
@@ -51,6 +52,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
-    "hyphenate-style-name": "^1.0.1"
+    "hyphenate-style-name": "^1.0.1",
+    "keyframe-transpose": "^1.0.0"
   }
 }
