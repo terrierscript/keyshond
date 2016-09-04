@@ -5,7 +5,7 @@ import singletonDom from 'singleton-dom'
 import { Native, Aphrodite, FreeStyle, Jss } from './binder'
 import radiumBind from './binder/radium'
 
-const doAnimate = (label, keyframeInput, keyframeOption) => {
+const doAnimateAll = (label, keyframeInput, keyframeOption) => {
   const props = {
     label, keyframeInput, keyframeOption
   }
@@ -20,6 +20,21 @@ const doAnimate = (label, keyframeInput, keyframeOption) => {
       <FreeStyle {...props} />
       <Jss {...props} />
       <Radium />
+    </div>
+  )
+}
+const doAnimate = (label, keyframeInput, keyframeOption) => {
+  const props = {
+    label, keyframeInput, keyframeOption
+  }
+  const Radium = () => {
+    return radiumBind(keyframeInput, keyframeOption)
+  }
+  return (
+    <div key={label} style={{width: 400}} >
+      ====={label}====
+      <Native {...props} />
+      <Aphrodite {...props} />
     </div>
   )
 }
@@ -71,6 +86,30 @@ const doms = () => {
       transform: ['scale(0.5)', 'scale(1)'],
       easing: 'ease-in-out',
     }, {
+      direction: 'alternate',
+      duration: 500,
+      iterations: Infinity,
+    }),
+    doAnimate("XXX Easing with keyframes with global", {
+      opacity: [0.5, 1],
+      transform: ['scale(0.5)', 'scale(1)'],
+      easing: 'ease-in',
+    }, {
+      direction: 'alternate',
+      duration: 500,
+      iterations: Infinity,
+      easing: 'ease-in',
+    }),
+    doAnimate("XXX keyframes as array", [{
+      opacity: 0.5,
+      transform: 'scale(0.5)',
+      easing: 'ease-in-out',
+    }, {
+      opacity: 1,
+      transform: 'scale(1)',
+      easing: 'ease-in-out',
+    }], {
+      // easing: 'ease-in-out',
       direction: 'alternate',
       duration: 500,
       iterations: Infinity,
@@ -147,7 +186,21 @@ const doms = () => {
       duration: 500,
       iterations: Infinity,
     }),
-
+    doAnimate("global and property easing", [{
+      background: 'red',
+      transform: 'scale(1)',
+      // easing: 'linear',
+    }, {
+      transform: 'scale(0.1)',
+      // easing: 'ease-out',
+    }, {
+      background: 'blue',
+      transform: 'scale(1)',
+    }], {
+      duration: 4000,
+      iterations: Infinity,
+      easing: 'ease-in-out',
+    }),
     doAnimate("keyframes with offset (partial)", [{
       opacity: 1.2,
       transform: 'scale(1.2)',
@@ -185,21 +238,6 @@ const doms = () => {
     }], {
       duration: 4000,
       iterations: Infinity,
-    }),
-    doAnimate("global and property easing", [{
-      background: 'red',
-      transform: 'none',
-      easing: 'linear',
-    }, {
-      transform: 'translateY(100px)',
-      easing: 'ease-out',
-    }, {
-      background: 'blue',
-      transform: 'none',
-    }], {
-      duration: 4000,
-      iterations: Infinity,
-      easing: 'ease-in-out',
     }),
     doAnimate("multiple offset with easing (first)", [{
       background: 'red',

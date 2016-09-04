@@ -10,7 +10,8 @@ export class Native extends React.Component {
   componentDidMount(){
     const dom = ReactDom.findDOMNode(this)
     const {keyframeInput, keyframeOption} = this.props
-    dom.animate(keyframeInput, keyframeOption)
+    const animate = dom.animate(keyframeInput, keyframeOption)
+    console.log(this.props.label, animate)
   }
   render(){
     const {label, keyframeInput, keyframeOption} = this.props
