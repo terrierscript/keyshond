@@ -1,6 +1,6 @@
 const arrayKeyframe = require('./array')
 const cssKeyframe = require('./css')
-const objectKeyframe = require('./object')
+const objectKeyframe = require('keyframe-transpose')
 const filter = require('./filter')
 
 const convertKeyframes = (keyframes) => {
