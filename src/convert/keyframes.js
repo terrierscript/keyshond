@@ -1,4 +1,4 @@
-const cssKeyframe = require('./css')
+const cssKeyframe = require('./keyframes-css')
 const objectKeyframe = require('keyframe-transpose')
 const filter = require('./filter')
 

@@ -153,3 +153,7 @@ const AnimateItem = () => {
 # Naming
 
 `@keyframes` + [keeshond](https://en.wikipedia.org/wiki/Keeshond)
+
+# Related project
+- [keyframe-transpose](https://github.com/inuscript/keyframe-transpose)
+  - keysond internal library for convert `Element.animate` like keyframe

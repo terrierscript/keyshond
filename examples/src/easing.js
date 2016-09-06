@@ -33,6 +33,30 @@ const doms = () => {
       ...optionBase,
       easing: 'ease',
     }),
+    doAnimate("Native2", {
+      ...input,
+      easing: 'linear',
+    }, {
+      ...optionBase,
+    }),
+    doAnimate("Native4", {
+      ...input,
+      animationTimingFunction: 'ease',
+    }, {
+      ...optionBase,
+    }),
+    doAnimate("Native5", {
+      ...input,
+      "animation-timing-function": 'ease',
+    }, {
+      ...optionBase,
+    }),
+    doAnimate("Native6", {
+      ...input,
+      "easing": 'ease',
+    }, {
+      ...optionBase,
+    }),
     doAnimate("Emulate", {
       ...input,
       easing: `cubic-bezier(
