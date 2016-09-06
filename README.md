@@ -156,4 +156,6 @@ const AnimateItem = () => {
 
 # Related project
 - [keyframe-transpose](https://github.com/inuscript/keyframe-transpose)
-  - keysond internal library for convert `Element.animate` like keyframe
+  - keysond internal library for convert `Element.animate` like keyframe Object
+- [css-keyframe-animatable](https://github.com/inuscript/css-keyframe-animatable)
+  - keysond internal library for convert CSS `@keyfrmaes` like Object
