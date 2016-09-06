@@ -13,7 +13,7 @@
     "preversion": "npm run build",
     "postversion": "git push --tag",
     "lint": "eslint src/ test/",
-    "test": "mocha test/",
+    "test": "npm run build; mocha test/",
     "coverage": "nyc npm test",
     "report-coverage": "nyc --reporter=lcov report > coverage.lcov"
   },
