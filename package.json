@@ -53,8 +53,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
+    "css-keyframe-animatable": "^1.0.0",
     "hyphenate-style-name": "^1.0.1",
-    "keyframe-transpose": "^1.0.0",
-    "css-keyframe-to-array": "^1.0.0"
+    "keyframe-transpose": "^1.0.0"
   }
 }
