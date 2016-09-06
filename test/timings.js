@@ -1,4 +1,4 @@
-const timings = require('../src/convert/timings')
+const timings = require('../lib/convert/timings')
 const calcTimings = timings.calcPrecentageTimings
 const assert = require('assert')
 

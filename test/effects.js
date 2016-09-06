@@ -1,16 +1,16 @@
-const convertEffect = require('../src/convert/effects')
+const convertEffect = require('../lib/convert/effects')
 const assert = require('assert')
 
 describe('convertEffect', function () {
   it('only number', () => {
-    let result = convertEffect({}, 2000)
+    const result = convertEffect({}, 2000)
     assert.deepEqual(result, {
       animationDuration: '2000ms',
       animationTimingFunction: 'linear'
     })
   })
   it('full options', () => {
-    let result = convertEffect({}, {
+    const result = convertEffect({}, {
       delay: 100,
       direction: 'alternate',
       duration: '300ms',
@@ -29,7 +29,7 @@ describe('convertEffect', function () {
   })
   describe('Timing Number options', () => {
     it('convert Number and suffix ms', () => {
-      let result = convertEffect({}, {
+      const result = convertEffect({}, {
         delay: 123,
         duration: 456
       })
@@ -40,7 +40,7 @@ describe('convertEffect', function () {
       })
     })
     it('accept with ms prefix', () => {
-      let result = convertEffect({}, {
+      const result = convertEffect({}, {
         delay: '123ms'
       })
       assert.deepEqual(result, {
@@ -51,7 +51,7 @@ describe('convertEffect', function () {
   })
   describe('Count number options', () => {
     it('convert Number to String', () => {
-      let result = convertEffect({}, {
+      const result = convertEffect({}, {
         iterations: 8
       })
       assert.deepEqual(result, {
@@ -60,7 +60,7 @@ describe('convertEffect', function () {
       })
     })
     it('convert Infinty', () => {
-      let result = convertEffect({}, {
+      const result = convertEffect({}, {
         iterations: Infinity
       })
       assert.deepEqual(result, {
