@@ -1,6 +1,6 @@
 const convertKeyframes = require('./keyframes')
 const convertEffect = require('./effects')
-const { bindTiming } = require('./timings')
+const bindTiming = require('../timings/bind')
 
 const convert = (keyframeInput, animateEffect) => {
   return {
