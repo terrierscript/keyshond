@@ -4,6 +4,7 @@ import singletonDom from 'singleton-dom'
 
 import { Native, Aphrodite, FreeStyle, Jss } from './binder'
 import radiumBind from './binder/radium'
+import { Glamor } from './binder/glamor'
 
 const doAnimateAll = (label, keyframeInput, keyframeOption) => {
   const props = {
@@ -35,6 +36,7 @@ const doAnimate = (label, keyframeInput, keyframeOption) => {
       ====={label}====
       <Native {...props} />
       <Aphrodite {...props} />
+      <Glamor {...props} />
     </div>
   )
 }

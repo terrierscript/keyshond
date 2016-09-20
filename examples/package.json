@@ -31,6 +31,7 @@
     "browserify": "^13.1.0",
     "budo": "^9.0.0",
     "free-style": "^1.2.2",
+    "glamor": "^2.15.5",
     "jss": "^5.4.0",
     "jss-preset-default": "^0.2.0",
     "radium": "^0.18.1",
