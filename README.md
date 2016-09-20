@@ -57,6 +57,7 @@ Output
 - [API](https://github.com/inuscript/keyshond/blob/master/docs/API.md)
 
 # Example
+[keyshond-examples](https://github.com/inuscript/keyshond-examples)
 
 ## with [aphrodite](https://github.com/Khan/aphrodite) (most easily)
 
