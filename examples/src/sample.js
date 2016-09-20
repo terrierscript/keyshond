@@ -2,25 +2,28 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import singletonDom from 'singleton-dom'
 
-import { Native, Aphrodite, FreeStyle, Jss } from './binder'
-import radiumBind from './binder/radium'
-import { Glamor } from './binder/glamor'
+import {
+  NativeSample,
+  AphroditeSample,
+  FreeStyleSample,
+  JssSample,
+  RadiumSample,
+  GlamorSample
+} from './binder'
 
 const doAnimateAll = (label, keyframeInput, keyframeOption) => {
   const props = {
     label, keyframeInput, keyframeOption
   }
-  const Radium = () => {
-    return radiumBind(keyframeInput, keyframeOption)
-  }
   return (
     <div key={label} style={{width: 400}} >
       ====={label}====
-      <Native {...props} />
-      <Aphrodite {...props} />
-      <FreeStyle {...props} />
-      <Jss {...props} />
-      <Radium />
+      <NativeSample {...props} />
+      <AphroditeSample {...props} />
+      <FreeStyleSample {...props} />
+      <JssSample {...props} />
+      <RadiumSample {...props} />
+      <GlamorSample {...props} />
     </div>
   )
 }
@@ -28,21 +31,24 @@ const doAnimate = (label, keyframeInput, keyframeOption) => {
   const props = {
     label, keyframeInput, keyframeOption
   }
-  const Radium = () => {
-    return radiumBind(keyframeInput, keyframeOption)
-  }
   return (
     <div key={label} style={{width: 400}} >
       ====={label}====
-      <Native {...props} />
-      <Aphrodite {...props} />
-      <Glamor {...props} />
+      <NativeSample {...props} />
+      <AphroditeSample {...props} />
     </div>
   )
 }
 
 const doms = () => {
   return [
+    doAnimateAll("Default props ", {
+      opacity: [0.5, 1],
+      transform: ['scale(0.5)', 'scale(1)'],
+    }, {
+      duration: 500,
+      iterations: Infinity,
+    }),
     doAnimate("Default props", {
       opacity: [0.5, 1],
       transform: ['scale(0.5)', 'scale(1)'],

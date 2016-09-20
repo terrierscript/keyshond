@@ -2,7 +2,7 @@ import React from 'react'
 import { animate } from '../../../src/index'
 import * as glamor from 'glamor'
 
-export const Glamor = ({label, keyframeInput, keyframeOption}) => {
+export const GlamorSample = ({label, keyframeInput, keyframeOption}) => {
   const anim = animate(keyframeInput, keyframeOption, {
     generateAnimationName: (timeline) => glamor.keyframes(timeline)
   })
