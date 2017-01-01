@@ -7,7 +7,7 @@ Same interface as [Element.animate()](https://developer.mozilla.org/en-US/docs/W
 
 This input support [Keyframe Formats](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
 
-Object
+* Object
 
 ```js
 {
@@ -15,7 +15,8 @@ Object
   color:   [ "#fff", "#000" ] // [ from, to ]  
 }
 ```
-Array
+
+* Array
 
 ```js
 [
@@ -36,7 +37,7 @@ with offset
   { opacity: 0 } ]
 ```
 
-and CSS `@keyframes` like object
+* CSS `@keyframes` like object
 
 ```js
 {
