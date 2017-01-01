@@ -29,10 +29,9 @@ const output = animate({
   direction: 'alternate',
 })
 
-console.log(output)
 ```
 
-Output
+Output:
 
 ```js
 {
